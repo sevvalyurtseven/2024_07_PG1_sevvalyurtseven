@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Java Questions and Answers</title>
@@ -30,42 +30,71 @@
 
     <button class="accordion">1.13 What is a high-level programming language?</button>
     <div class="panel">
-        <p><span>Answer:</span> A high-level programming language is a language that is more abstract and closer to human languages, making it easier to read and write. It is independent of the hardware and is translated into machine code by a compiler or interpreter.</p>
+        <p><span>Answer:</span> A high-level programming language is a programming language that is more abstract and closer to human languages, making it easier to read and write. It is independent of the computer's hardware and needs to be compiled or interpreted into machine code.</p>
     </div>
 
     <button class="accordion">1.14 What is a source program?</button>
     <div class="panel">
-        <p><span>Answer:</span> A source program is the original code written by a programmer in a high-level programming language before it is compiled or interpreted.</p>
+        <p><span>Answer:</span> A source program is the original code written by a programmer in a high-level programming language before it is compiled or interpreted into machine code.</p>
     </div>
 
     <button class="accordion">1.15 What is an interpreter?</button>
     <div class="panel">
-        <p><span>Answer:</span> An interpreter is a program that directly executes the instructions in a source program without compiling it into machine code first, interpreting the code line by line.</p>
+        <p><span>Answer:</span> An interpreter is a program that directly executes the instructions written in a programming language without requiring them to be compiled into machine code. It reads the source code line by line, interprets it, and performs the specified actions immediately.</p>
     </div>
 
     <button class="accordion">1.16 What is a compiler?</button>
     <div class="panel">
-        <p><span>Answer:</span> A compiler is a program that translates code written in a high-level programming language into machine code, producing an executable file that can be run by the CPU.</p>
+        <p><span>Answer:</span> A compiler is a program that translates code written in a high-level programming language into machine code, which the CPU can execute. The entire program is compiled at once, and an executable file is generated, which can be run independently.
+        </p>
     </div>
 
     <button class="accordion">1.17 What is the difference between an interpreted language and a compiled language?</button>
     <div class="panel">
-        <p><span>Answer:</span> The difference lies in how the code is executed. In an interpreted language, the code is executed line by line by an interpreter. In a compiled language, the entire program is first compiled into machine code, and then the resulting executable file is run.</p>
+        <p><span>Answer:</span> The main difference between an interpreted language and a compiled language lies in how the code is executed: <br/><br/>
+
+            <span>Interpreted Language:</span> The code is executed line by line by an interpreter, and it doesn't need to be compiled into machine code before execution. Examples include Python and JavaScript.<br/><br/>
+
+            <span>Compiled Language:</span> The code is first compiled into machine code by a compiler, resulting in an executable file. This file can be run directly by the CPU. Examples include C, C++, and Java.
+
+            <br/><br/>In general, compiled languages tend to be faster since the translation into machine code happens before execution, whereas interpreted languages offer more flexibility and ease of debugging but might be slower due to the on-the-fly interpretation.</p>
     </div>
 
     <button class="accordion">1.18 What is an operating system? List some popular operating systems.</button>
     <div class="panel">
-        <p><span>Answer:</span> An operating system (OS) is system software that manages computer hardware and software resources, and provides services for computer programs. Popular operating systems include Windows, macOS, Linux, Android, and iOS.</p>
+        <p><span>Answer:</span> An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs. The OS acts as an intermediary between users and the computer hardware, enabling user interaction with the system.
+
+            <br/><br/> <span>Some popular operating systems include:</span>
+
+            <br/><span>1.</span> Windows
+            <br/><span>2.</span> macOS
+            <br/><span>3.</span> Linux (e.g., Ubuntu, Fedora)
+            <br/><span>4.</span> Android
+            <br/><span>5.</span> iOS</p>
     </div>
 
     <button class="accordion">1.19 What are the major responsibilities of an operating system?</button>
     <div class="panel">
-        <p><span>Answer:</span> The major responsibilities include process management, memory management, file system management, device management, security and access control, and providing a user interface.</p>
+        <p><span>Answer:</span> The major responsibilities of an operating system include:<br/>
+
+            <span>1. Process Management:</span> Managing the creation, scheduling, and termination of processes.<br/>
+            <span>2. Memory Management:</span> Handling and allocating memory to processes, ensuring efficient use of system memory.<br/>
+            <span>3. File System Management:</span> Managing files and directories, including file creation, deletion, and access control.<br/>
+            <span>4. Device Management:</span> Controlling and interfacing with input/output devices, ensuring proper communication between hardware and software.<br/>
+            <span>5. Security and Access Control:</span> Protecting the system from unauthorized access, managing user permissions, and ensuring data security.<br/>
+            <span>6. User Interface:</span> Providing a user interface (e.g., command-line interface, graphical user interface) for interacting with the system.</p>
     </div>
 
     <button class="accordion">1.20 What are multiprogramming, multithreading, and multiprocessing?</button>
     <div class="panel">
-        <p><span>Answer:</span> Multiprogramming is the ability of an OS to run multiple programs simultaneously by keeping several in memory. Multithreading is the ability of a CPU to execute multiple threads concurrently within a single process. Multiprocessing is the use of two or more CPUs within a computer system to run multiple processes simultaneously.</p>
+        <p><span>Answer:</span><br/>
+            <span>Multiprogramming:</span> Multiprogramming refers to the ability of an operating system to run multiple programs simultaneously by keeping several programs in memory at the same time. The OS switches between them, optimizing CPU usage and minimizing idle time.<br/>
+
+            <span>Multithreading:</span> Multithreading is the ability of a CPU (or a single process) to execute multiple threads concurrently. Each thread represents a separate path of execution within a program, allowing tasks to be performed simultaneously within a single application.<br/>
+
+            <span>Multiprocessing:</span> Multiprocessing refers to the use of two or more CPUs within a single computer system. This allows multiple processes to run simultaneously on different processors, improving system performance and enabling parallel processing.<br/>
+
+            These concepts are essential for optimizing system performance and ensuring efficient use of hardware resources.</p>
     </div>
 
     <button class="accordion">1.21 Who invented Java? Which company owns Java now?</button>
@@ -75,17 +104,17 @@
 
     <button class="accordion">1.22 What is a Java applet?</button>
     <div class="panel">
-        <p><span>Answer:</span> A Java applet is a small Java program that can be embedded in a web page and run in a web browser. However, due to security issues, applets are now largely obsolete.</p>
+        <p><span>Answer:</span> A Java applet is a small application written in Java that can be embedded in a web page and run in a web browser. However, due to security issues and modern web development trends, Java applets are now largely obsolete.</p>
     </div>
 
     <button class="accordion">1.23 What programming language does Android use?</button>
     <div class="panel">
-        <p><span>Answer:</span> Android primarily uses Java, and more recently, Kotlin is also officially supported for Android development.</p>
+        <p><span>Answer:</span> Android primarily uses Java for application development, and more recently, Kotlin is also officially supported as a programming language for Android development.</p>
     </div>
 
     <button class="accordion">1.24 What is the Java language specification?</button>
     <div class="panel">
-        <p><span>Answer:</span> The Java language specification is the official document that defines the syntax and semantics of the Java programming language.</p>
+        <p><span>Answer:</span> The Java language specification is the official document that defines the syntax, semantics, and features of the Java programming language.</p>
     </div>
 
     <button class="accordion">1.25 What does JDK stand for?</button>
@@ -100,12 +129,12 @@
 
     <button class="accordion">1.27 Are tools like NetBeans and Eclipse different languages from Java, or are they dialects or extensions of Java?</button>
     <div class="panel">
-        <p><span>Answer:</span> NetBeans and Eclipse are not languages; they are Integrated Development Environments (IDEs) that support Java development. They provide tools and features to write, debug, and manage Java code.</p>
+        <p><span>Answer:</span> NetBeans and Eclipse are not languages. They are Integrated Development Environments (IDEs) that support Java development by providing tools and features to write, debug, and manage Java code.</p>
     </div>
 
     <button class="accordion">1.28 What is a keyword? List some Java keywords.</button>
     <div class="panel">
-        <p><span>Answer:</span> A keyword is a reserved word in a programming language that has a specific meaning and cannot be used as an identifier. Examples of Java keywords include class, public, static, void, if, else, and return.</p>
+        <p><span>Answer:</span> A keyword is a reserved word in a programming language that has a specific meaning and cannot be used as an identifier. Examples of Java keywords include <span> "class", "public", "static", "void", "if", "else", and "return".</span></p>
     </div>
 
     <button class="accordion">1.29 Is Java case sensitive? What is the case for Java keywords?</button>
@@ -166,51 +195,55 @@ public class Test {
         <p><span>Answer:</span> Yes, Java can run on any machine that has a JVM installed. To run Java on a computer, the Java Runtime Environment (JRE) is needed.</p>
     </div>
 
-    <button class="accordion">1.39 If a NoClassDefFoundError occurs when you run a program, what is the cause of the error?</button>
+    <button class="accordion">1.39 If a <span>NoClassDefFoundError</span> occurs when you run a program, what is the cause of the error?</button>
     <div class="panel">
-        <p><span>Answer:</span> A NoClassDefFoundError occurs when the JVM cannot find the <code>.class</code> file that it needs to run the program. This could be due to an incorrect CLASSPATH or the <code>.class</code> file being missing.</p>
+        <p><span>Answer:</span> A <span>NoClassDefFoundError</span> occurs when the JVM cannot find the <code>.class</code> file that it needs to run the program. This could be due to an incorrect CLASSPATH or the <code>.class</code> file being missing.</p>
     </div>
 
-    <button class="accordion">1.40 If a NoSuchMethodError occurs when you run a program, what is the cause of the error?</button>
+    <button class="accordion">1.40 If a <span>NoSuchMethodError</span> occurs when you run a program, what is the cause of the error?</button>
     <div class="panel">
-        <p><span>Answer:</span> A NoSuchMethodError occurs when the JVM cannot find the method that it is trying to invoke. This often happens if the main method is incorrectly defined or missing.</p>
+        <p><span>Answer:</span> A <span>NoSuchMethodError</span> occurs when the JVM cannot find the method that it is trying to invoke. This often happens if the main method is incorrectly defined or missing.</p>
     </div>
 
     <button class="accordion">1.41 Reformat the following program according to the programming style and documentation guidelines. Use the end-of-line brace style:</button>
     <div class="panel">
         <h4>Question:</h4>
         <pre><code>
-public class Test {
-    // Main method
-    public static void main(String[] args) {
-        /** Display output */
-        System.out.println("Welcome to Java");
-    }
-}
+            public class Test
+            {
+            // Main method
+            public static void main(String[] args) {
+            /** Display output */
+            System.out.println("Welcome to Java");
+            }
+            }
         </code></pre>
         <h4>Refactored Code:</h4>
         <pre><code>
-public class Test {
-    // Main method
-    public static void main(String[] args) {
-        /** Display output */
-        System.out.println("Welcome to Java");
-    }
-}
+            public class Test {
+            // Main method
+            public static void main(String[] args) {
+            /** Display output */
+            System.out.println("Welcome to Java");
+            }
+            }
         </code></pre>
     </div>
 
     <button class="accordion">1.42 What are syntax errors (compile errors), runtime errors, and logic errors?</button>
     <div class="panel">
-        <p><span>Answer:</span> Syntax errors are errors in the code that violate the rules of the programming language and prevent the code from compiling. Runtime errors are errors that occur while the program is running, causing it to crash. Logic errors are errors in the program's logic that cause it to produce incorrect results, even though it compiles and runs.</p>
+        <p><span>Answer:</span><br/>
+            <span>Syntax errors:</span> Errors in the code that violate the rules of the programming language and prevent the code from compiling.<br/>
+            <span>Runtime errors:</span> Errors that occur while the program is running, causing it to crash.<br/>
+            <span>Logic errors:</span> Errors in the program's logic that cause it to produce incorrect results, even though it compiles and runs.</p>
     </div>
 
     <button class="accordion">1.43 Give examples of syntax errors, runtime errors, and logic errors.</button>
     <div class="panel">
         <p><span>Answer:</span><br>
-            - Syntax Error: Missing semicolon in a statement like <code>System.out.println("Hello World")</code><br>
-            - Runtime Error: Dividing by zero in a statement like <code>int result = 10 / 0;</code><br>
-            - Logic Error: Incorrectly calculating the sum by using subtraction: <code>int sum = a - b;</code>
+            <span>- Syntax Error:</span> Missing semicolon in a statement like <code>System.out.println("Hello World")</code><br>
+            <span>- Runtime Error:</span> Dividing by zero in a statement like <code>int result = 10 / 0;</code><br>
+            <span>- Logic Error:</span> Incorrectly calculating the sum by using subtraction: <code>int sum = a - b;</code>
         </p>
     </div>
 
@@ -246,7 +279,13 @@ public class Welcome {
         System.out.println("Welcome to Java!");
     }
 }
-        </code></pre>
+        </code>
+        <br/><span>The errors were:</span><br/>
+
+        1. The Main method should be main.<br/>
+        2. The main method should be static.<br/>
+        3. The string should be enclosed in double quotes ("), not single quotes (').
+        </pre>
     </div>
 </div>
 
