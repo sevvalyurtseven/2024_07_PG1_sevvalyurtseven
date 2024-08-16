@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction To Elementary Programming</title>
+    <link rel="stylesheet" href="../resources/styles.css">
+</head>
+<body>
+<div class="container">
+    <!-- Başlık ve Alt Başlık -->
+    <header>
+        <h1>INTRODUCTION TO JAVA PROGRAMMING - Y. Daniel Liang</h1>
+        <h2>Chapter 2: Elementary Programming - Identify and Fix Errors</h2>
+    </header>
+
+    <button class="accordion">2.1 Identify and fix the errors in the following code:</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <pre><code>
+public class Test {
+  public void main(string[] args) {
+  double i = 50.0;
+  double k = i + 50.0;
+  double j = k + 1;
+
+  System.out.println("j is " + j + " and
+  k is " + k);
+  }
+}
+        </code></pre>
+
+        <h4>Fixed Code:</h4>
+        <pre><code>
+public class Test {
+  public static void main(String[] args) {
+  double i = 50.0;
+  double k = i + 50.0;
+  double j = k + 1;
+
+  System.out.println("j is " + j + " and k is " + k);
+  }
+}
+        </code></pre>
+        <br/><span>The errors were:</span><br/>
+
+        1. The method signature should be <span>`public static void main(String[] args)`</span>.<br/>
+        2. <span>`string`</span> should be <span>`String`</span> (Java is case-sensitive).<br/>
+        3. The <span>`System.out.println`</span> statement had a line break in the middle of the string; this was fixed by moving the entire string to a single line.
+    </div>
+    <button class="accordion">2.2 How do you write a statement to let the user enter a double value from the keyboard? What happens if you entered 5a when executing the following code?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            To allow the user to enter a double value from the keyboard, you would write the following statement:<br/><br/>
+            <code>double radius = input.nextDouble();</code><br/><br/>
+            If you enter "5a" when executing this code, a <span>InputMismatchException</span> will be thrown, because the input "5a" is not a valid double value. The program will terminate abnormally unless this exception is handled properly.
+        </p>
+    </div>
+
+    <button class="accordion">2.3 Are there any performance differences between the following two import statements?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            <code>import java.util.Scanner;</code><br/><br/>
+            <code>import java.util.*;</code><br/><br/>
+            There is no performance difference between these two import statements during runtime. The difference is only in how the code is organized and managed by the compiler. <span>Specific imports</span> (like <code>import java.util.Scanner;</code>) import only the specified class, making the code more readable and helping to avoid potential naming conflicts. The <span>wildcard import</span> (like <code>import java.util.*;</code>) imports all classes in the package, which might be more convenient in some cases but can lead to unnecessary imports and potential naming conflicts. However, it doesn't affect performance.
+        </p>
+    </div>
+    <button class="accordion">2.4 Which of the following identifiers are valid? Which are Java keywords?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            <span>Valid Identifiers:</span><br/>
+            - <code>miles</code>: This is a valid identifier as it starts with a letter and follows Java's naming rules.<br/>
+            - <code>Test</code>: This is valid, with an uppercase first letter, which is typical for class names.<br/>
+            - <code>$4</code>: Valid, as it begins with a dollar sign, which is allowed in Java.<br/>
+            - <code>apps</code>: A valid identifier, beginning with a letter.<br/>
+            - <code>x</code>: Valid, a simple single-letter identifier.<br/>
+            - <code>y</code>: Similar to <code>x</code>, it's also valid.<br/>
+            - <code>radius</code>: A valid identifier, descriptive and starting with a letter.<br/><br/>
+
+            <span>Invalid Identifiers:</span><br/>
+            - <code>a++</code>: Invalid because it contains the increment operator, which is not allowed in an identifier.<br/>
+            - <code>––a</code>: Invalid due to the presence of an illegal character (double hyphen).<br/>
+            - <code>4#R</code>: Invalid as it starts with a number and contains a hash symbol.<br/>
+            - <code>#44</code>: Invalid, as it starts with a hash symbol.<br/><br/>
+
+            <span>Java Keywords:</span><br/>
+            - <code>class</code>, <code>public</code>, <code>int</code>: These are Java reserved keywords and cannot be used as identifiers.
+        </p>
+    </div>
+    <button class="accordion">2.5 Identify and fix the errors in the following code:</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <pre><code>
+ public class Test {
+    public static void main(String[] args) {
+        int i = k + 2;
+        System.out.println(i);
+    }
+ }
+    </code></pre>
+        <h4>Fixed Code:</h4>
+        <pre><code>
+ public class Test {
+    public static void main(String[] args) {
+        int k = 0; // Initialize the variable k
+        int i = k + 2;
+        System.out.println(i);
+    }
+ }
+    </code></pre>
+        <p><span>Explanation:</span> The original code had an error because the variable <code>k</code> was used before being initialized. The error was fixed by declaring and initializing <code>k</code> before using it in the expression.</p>
+    </div>
+    <button class="accordion">2.6 Identify and fix the errors in the following code:</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <pre><code>
+ public class Test {
+    public static void main(String[] args) {
+        int i = j = k = 2;
+        System.out.println(i + " " + j + " " + k);
+    }
+ }
+    </code></pre>
+        <h4>Fixed Code:</h4>
+        <pre><code>
+ public class Test {
+    public static void main(String[] args) {
+        int i, j, k;
+        i = j = k = 2;
+        System.out.println(i + " " + j + " " + k);
+    }
+ }
+    </code></pre>
+        <p><span>Explanation:</span> The original code had an error because variables <code>j</code> and <code>k</code> were not declared before being used. The error was fixed by declaring <code>i</code>, <code>j</code>, and <code>k</code> first, then assigning them the value <code>2</code>.</p>
+    </div>
+    <button class="accordion">2.7 What are the benefits of using constants? Declare an int constant SIZE with value 20.</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            <span style="background-color:yellow; color:black;" >Benefits of Using Constants:</span><br/>
+            <span >1. Improves code readability:</span> Constants give meaningful names to fixed values, making the code easier to understand.<br/>
+            <span >2. Prevents accidental changes:</span> Once declared, constants cannot be modified, ensuring that critical values remain unchanged.<br/>
+            <span >3. Facilitates easy updates:</span> If a constant value needs to be changed, it only needs to be updated in one place.<br/><br/>
+
+            <span style="background-color:yellow; color:black;">Declaration:</span><br/>
+            <code>final int SIZE = 20;</code>
+        </p>
+    </div>
+
+    <button class="accordion">2.8 What are the naming conventions for class names, method names, constants, and variables? Which of the following items can be a constant, a method, a variable, or a class according to the Java naming conventions? MAX_VALUE, Test, read, readDouble</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            <span style="background-color:yellow; color:black;">Naming Conventions:</span><br/>
+            - <span>Class Names:</span> Use PascalCase (e.g., <code>Test</code>).<br/>
+            - <span>Method Names:</span> Use camelCase (e.g., <code>readDouble</code>).<br/>
+            - <span>Constants:</span> Use UPPERCASE with underscores (e.g., <code>MAX_VALUE</code>).<br/>
+            - <span>Variables:</span> Use camelCase (e.g., <code>miles</code>, <code>radius</code>).<br/><br/>
+
+            <span style="background-color:yellow; color:black;">Classification:</span><br/>
+            - <code>MAX_VALUE</code>: Constant<br/>
+            - <code>Test</code>: Class<br/>
+            - <code>read</code>: Method or Variable<br/>
+            - <code>readDouble</code>: Method
+        </p>
+    </div>
+
+    <button class="accordion">2.9 Translate the following algorithm into Java code:</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <p> <span>Step 1:</span> Declare a double variable named miles with initial value 100.<br/>
+            <span>Step 2:</span> Declare a double constant named KILOMETERS_PER_MILE with value 1.609.<br/>
+            <span>Step 3:</span> Declare a double variable named kilometers, multiply miles and KILOMETERS_PER_MILE, and assign the result to kilometers.<br/>
+            <span>Step 4:</span> Display kilometers to the console.<br/>
+            What is kilometers after Step 4?</p>
+
+        <h4>Java Code:</h4>
+        <pre><code>
+public class Conversion {
+    public static void main(String[] args) {
+        double miles = 100; // Step 1
+        final double KILOMETERS_PER_MILE = 1.609; // Step 2
+        double kilometers = miles * KILOMETERS_PER_MILE; // Step 3
+        System.out.println("Kilometers: " + kilometers); // Step 4
+    }
+}
+    </code></pre>
+        <p><span>Answer:</span><br/>
+            After Step 4, <code>kilometers</code> is <span >160.9</span>.
+        </p>
+    </div>
+    <button class="accordion">2.10 Find the largest and smallest byte, short, int, long, float, and double. Which of these data types requires the least amount of memory?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            <span>Largest and Smallest Values:</span><br/>
+            - <code>byte</code>: -128 to 127 (<span>requires the least memory - 8 bits</span>)<br/>
+            - <code>short</code>: -32,768 to 32,767 (<span>16 bits</span>)<br/>
+            - <code>int</code>: -2,147,483,648 to 2,147,483,647 (<span>32 bits</span>)<br/>
+            - <code>long</code>: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (<span>64 bits</span>)<br/>
+            - <code>float</code>: Approx. ±3.4028235e+38 (<span>7 significant decimal digits, 32 bits</span>)<br/>
+            - <code>double</code>: Approx. ±1.7976931348623157e+308 (<span>15 significant decimal digits, 64 bits</span>)<br/><br/>
+            The data type that requires the least amount of memory is <code>byte</code> (<span>8 bits</span>).
+        </p>
+    </div>
+
+    <button class="accordion">2.11 Show the result of the following remainders:</button>
+    <div class="panel">
+        <pre><code>
+56 % 6    // Result: 2 (56 divided by 6 gives 9 with a remainder of 2)
+78 % -4   // Result: 2 (78 divided by -4 gives -19 with a remainder of 2)
+-34 % 5   // Result: -4 (-34 divided by 5 gives -6 with a remainder of -4)
+-34 % -5  // Result: -4 (-34 divided by -5 gives 6 with a remainder of -4)
+5 % 1     // Result: 0 (5 divided by 1 gives 5 with no remainder)
+1 % 5     // Result: 1 (1 divided by 5 gives 0 with a remainder of 1)
+        </code></pre>
+    </div>
+
+    <button class="accordion">2.12 If today is Tuesday, what will be the day in 100 days?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            To determine the day 100 days from Tuesday, divide 100 by 7 (number of days in a week).<br/><br/>
+            100 ÷ 7 = 14 weeks and 2 days.<br/><br/>
+            Therefore, 100 days later will be <span>Thursday</span> (Tuesday + 2 days).
+        </p>
+    </div>
+
+    <button class="accordion">2.13 What is the result of 25 / 4? How would you rewrite the expression if you wished the result to be a floating-point number?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            The result of <code>25 / 4</code> is <span>6</span> (integer division, as both operands are integers).<br/><br/>
+            To get a floating-point result, you can write the expression as <code>25.0 / 4</code> or <code>25 / 4.0</code>, resulting in <span>6.25</span>. This is because at least one operand is a floating-point number, so the division is performed as floating-point division.
+        </p>
+    </div>
+
+    <button class="accordion">2.14 Show the result of the following code:</button>
+    <div class="panel">
+        <pre><code>
+System.out.println(2 * (5 / 2 + 5 / 2));  // Output: 8
+// (5 / 2) is 2 (integer division), so (2 + 2) is 4, and 2 * 4 is 8.
+
+System.out.println(2 * 5 / 2 + 2 * 5 / 2); // Output: 10
+// 2 * 5 is 10, 10 / 2 is 5. Another 2 * 5 / 2 gives another 5. 5 + 5 is 10.
+
+System.out.println(2 * (5 / 2));          // Output: 4
+// (5 / 2) is 2 (integer division), so 2 * 2 is 4.
+
+System.out.println(2 * 5 / 2);            // Output: 5
+// 2 * 5 is 10, 10 / 2 is 5.
+        </code></pre>
+    </div>
+
+    <button class="accordion">2.15 Are the following statements correct? If so, show the output:</button>
+    <div class="panel">
+        <pre><code>
+System.out.println("25 / 4 is " + 25 / 4);         // Output: 25 / 4 is 6
+// Integer division, result is 6.
+
+System.out.println("25 / 4.0 is " + 25 / 4.0);     // Output: 25 / 4.0 is 6.25
+// Floating-point division, result is 6.25.
+
+System.out.println("3 * 2 / 4 is " + 3 * 2 / 4);   // Output: 3 * 2 / 4 is 1
+// 3 * 2 is 6, 6 / 4 is 1 (integer division).
+
+System.out.println("3.0 * 2 / 4 is " + 3.0 * 2 / 4); // Output: 3.0 * 2 / 4 is 1.5
+// 3.0 * 2 is 6.0, 6.0 / 4 is 1.5 (floating-point division).
+        </code></pre>
+    </div>
+
+    <button class="accordion">2.16 Write a statement to display the result of 23.5.</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            The statement to display the result of <code>23.5</code> is:<br/><br/>
+            <code>System.out.println(23.5);</code>
+        </p>
+    </div>
+
+    <button class="accordion">2.17 Suppose m and r are integers. Write a Java expression for mr^2 to obtain a floating-point result.</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            To obtain a floating-point result for <code>m * r^2</code> where <code>m</code> and <code>r</code> are integers, you can write the expression as:<br/><br/>
+            <code>(double)(m * r * r)</code> or <code>m * Math.pow(r, 2.0)</code><br/><br/>
+            - <code>(double)(m * r * r)</code> converts the result of <code>m * r * r</code> to a double.<br/>
+            - <code>Math.pow(r, 2.0)</code> calculates <code>r</code> squared as a double and multiplies it by <code>m</code>.
+        </p>
+    </div>
+    <button class="accordion">2.18 How many accurate digits are stored in a float or double type variable?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            - A <code>float</code> type variable can store approximately <span>7 significant decimal digits</span>.<br/>
+            - A <code>double</code> type variable can store approximately <span>15 significant decimal digits</span>.
+        </p>
+    </div>
+
+    <button class="accordion">2.19 Which of the following are correct literals for floating-point numbers?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            The following are correct literals for floating-point numbers:<br/>
+            - <code>12.3</code>: Valid<br/>
+            - <code>12.3e+2</code>: Valid (scientific notation)<br/>
+            - <code>23.4e-2</code>: Valid (scientific notation)<br/>
+            - <code>-334.4</code>: Valid<br/>
+            - <code>20.5</code>: Valid<br/>
+            - <code>39F</code>: Valid (float literal)<br/>
+            - <code>40D</code>: Valid (double literal)<br/>
+        </p>
+    </div>
+
+    <button class="accordion">2.20 Which of the following are the same as 52.534?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            The following literals represent the same value as <code>52.534</code>:<br/>
+            - <code>5.2534e+1</code>: Equivalent to 52.534<br/>
+            - <code>0.52534e+2</code>: Equivalent to 52.534<br/>
+            - <code>525.34e-1</code>: Equivalent to 52.534<br/><br/>
+            The literal <code>5.2534e+0</code> is not equivalent to 52.534; it represents 5.2534.
+        </p>
+    </div>
+
+    <button class="accordion">2.21 Which of the following are correct literals?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            <span style="background-color:yellow; color:black;">The following literals are correct:</span><br/>
+            - <code>5_2534e+1</code>: Valid <span>(underscores are allowed in numeric literals for readability)</span><br/><br/>
+            <span style="background-color:yellow; color:black;">The following literals are incorrect:</span><br/>
+            - <code>_2534</code>: Invalid <span>(cannot start with an underscore)</span><br/>
+            - <code>5_2</code>: Invalid <span>(cannot end with or have only one digit after the underscore)</span><br/>
+            - <code>5_</code>: Invalid <span>(cannot end with an underscore)</span>
+        </p>
+    </div>
+    <button class="accordion">2.22 How would you write the following arithmetic expression in Java?</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <p>How would you write the following arithmetic expressions in Java?</p>
+
+        <pre><code>
+    a.       4        3 + d(2 + a)
+          -------- - -----------
+          3(r + 34)     a + bd
+
+    b.   5.5 × (r + 2.5)^(2.5 + t)
+    </code></pre>
+
+        <h4>Java Code:</h4>
+        <pre><code>
+    // a.
+    double resultA = (4.0 / (3 * (r + 34))) - ((9 * (a + bc)) + (3 + d * (2 + a)) / (a + bd));
+
+    // b.
+    double resultB = 5.5 * Math.pow(r + 2.5, 2.5 + t);
+    </code></pre>
+
+        <p><span>Explanation:</span><br/><br/>
+            In the Java code:
+        <ul>
+            <li>Division is handled using the <code>/</code> operator.</li>
+            <li>Multiplication is handled using the <code>*</code> operator.</li>
+            <li>Exponents are calculated using the <code>Math.pow()</code> method.</li>
+        </ul>
+        </p>
+    </div>
+    <button class="accordion">2.22 How would you write the following arithmetic expression in Java?</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <p>How would you write the following arithmetic expressions in Java?</p>
+
+        <pre><code>
+    a.       4        3 + d(2 + a)
+          -------- - -----------
+          3(r + 34)     a + bd
+
+    b.   5.5 × (r + 2.5)^(2.5 + t)
+    </code></pre>
+
+        <h4>Java Code:</h4>
+        <pre><code>
+    // a.
+    double resultA = (4.0 / (3 * (r + 34))) - ((9 * (a + bc)) + (3 + d * (2 + a)) / (a + bd));
+
+    // b.
+    double resultB = 5.5 * Math.pow(r + 2.5, 2.5 + t);
+    </code></pre>
+
+        <p><span>Explanation:</span><br/><br/>
+            In the Java code:
+        <ul>
+            <li>Division is handled using the <code>/</code> operator.</li>
+            <li>Multiplication is handled using the <code>*</code> operator.</li>
+            <li>Exponents are calculated using the <code>Math.pow()</code> method.</li>
+        </ul>
+        </p>
+    </div>
+    <button class="accordion">2.22 How would you write the following arithmetic expression in Java?</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <p>How would you write the following arithmetic expressions in Java?</p>
+
+        <pre><code>
+    a.       4        3 + d(2 + a)
+          -------- - -----------
+          3(r + 34)     a + bd
+
+    b.   5.5 × (r + 2.5)^(2.5 + t)
+    </code></pre>
+
+        <h4>Java Code:</h4>
+        <pre><code>
+    // a.
+    double resultA = (4.0 / (3 * (r + 34))) - ((9 * (a + bc)) + (3 + d * (2 + a)) / (a + bd));
+
+    // b.
+    double resultB = 5.5 * Math.pow(r + 2.5, 2.5 + t);
+    </code></pre>
+
+        <p><span>Explanation:</span><br/><br/>
+            In the Java code:
+        <ul>
+            <li>Division is handled using the <code>/</code> operator.</li>
+            <li>Multiplication is handled using the <code>*</code> operator.</li>
+            <li>Exponents are calculated using the <code>Math.pow()</code> method.</li>
+        </ul>
+        </p>
+    </div>
+    <button class="accordion">2.22 How would you write the following arithmetic expression in Java?</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <p>How would you write the following arithmetic expressions in Java?</p>
+
+        <pre><code>
+    a.       4                    3 + d(2 + a)
+          -------- - 9(a + bc) +  -----------
+          3(r + 34)               a + bd
+
+
+    b.   5.5 × (r + 2.5)^(2.5 + t)
+    </code></pre>
+
+        <h4>Java Code:</h4>
+        <pre><code>
+// a.
+ double resA = (4.0 / (3 * (r + 34))) - (9 * (a + b * c)) + ((3 + d * (2 + a)) / (a + b * d));
+
+// b.
+double resB = 5.5 * Math.pow(r + 2.5, 2.5 + t);
+    </code></pre>
+
+        <p><span>Explanation:</span><br/><br/>
+            In the Java code:
+        <ul>
+            <li>Division is handled using the <code>/</code> operator.</li>
+            <li>Multiplication is handled using the <code>*</code> operator.</li>
+            <li>Exponents are calculated using the <code>Math.pow()</code> method.</li>
+        </ul>
+        </p>
+    </div>
+    <button class="accordion">2.23 How do you obtain the current second, minute, and hour?</button>
+    <div class="panel">
+        <h4>Answer:</h4>
+        <p>To obtain the current second, minute, and hour in Java, you can use the `java.time.LocalTime` class, which is part of the Java 8 Date and Time API. Here's how you can do it:</p>
+
+        <pre><code>
+import java.time.LocalTime;
+
+public class CurrentTimeExample {
+    public static void main(String[] args) {
+        // Get the current time
+        LocalTime currentTime = LocalTime.now();
+
+        // Extract the current second, minute, and hour
+        int currentSecond = currentTime.getSecond();
+        int currentMinute = currentTime.getMinute();
+        int currentHour = currentTime.getHour();
+
+        // Display the results
+        System.out.println("Current hour: " + currentHour);
+        System.out.println("Current minute: " + currentMinute);
+        System.out.println("Current second: " + currentSecond);
+    }
+}
+        </code></pre>
+
+        <p><span>Explanation:</span><br/>
+            The `LocalTime.now()` method returns an instance of `LocalTime` representing the current time. The methods <code>getSecond()</code>, <code>getMinute()</code>, and <code>getHour()</code> are used to retrieve the current second, minute, and hour, respectively.
+        </p>
+    </div>
+    <button class="accordion">2.24 Show the output of the following code:</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <pre><code>
+double a = 6.5;
+a += a + 1;
+System.out.println(a);
+a = 6;
+a /= 2;
+System.out.println(a);
+    </code></pre>
+        <h4>Output:</h4>
+        <pre><code>
+14.0
+3.0
+    </code></pre>
+        <p><span>Explanation:</span><br/><br/>
+            - Initially, the variable <code>a</code> is assigned the value 6.5.<br/>
+            - The statement <code>a += a + 1;</code> adds <code>a</code> to itself plus 1, updating <code>a</code> to 14.0. This value is then printed to the console.<br/>
+            - Next, <code>a</code> is assigned the value 6, and the statement <code>a /= 2;</code> divides <code>a</code> by 2, updating <code>a</code> to 3.0. This value is also printed to the console.<br/><br/>
+            Therefore, the output of the code is <code>14.0</code> followed by <code>3.0</code>.
+        </p>
+    </div>
+    <button class="accordion">2.25 Which of these statements are true?</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <p><span>a.</span> Any expression can be used as a statement.<br/>
+            <span>b.</span> The expression <code>x++</code> can be used as a statement.<br/>
+            <span>c.</span> The statement <code>x = x + 5</code> is also an expression.<br/>
+            <span>d.</span> The statement <code>x = y = x = 0</code> is illegal.</p>
+        <h4>Answer:</h4>
+        <p><span>Explanation:</span><br/><br/>
+            <span>a.</span> <strong>False:</strong> Not every expression can be used as a statement. Only expressions that have some side effect (like assignments, increments, etc.) can be statements.<br/>
+            <span>b.</span> <strong>True:</strong> The expression <code>x++</code> is a valid statement because it modifies the value of <code>x</code>.<br/>
+            <span>c.</span> <strong>True:</strong> The statement <code>x = x + 5</code> is also an expression that assigns a new value to <code>x</code>, hence it's valid.<br/>
+            <span>d.</span> <strong>False:</strong> The statement <code>x = y = x = 0</code> is legal in Java. It assigns 0 to <code>x</code>, then <code>x</code> (which is now 0) to <code>y</code>, and finally <code>y</code> (which is 0) to <code>x</code>.
+        </p>
+    </div>
+
+    <button class="accordion">2.26 Show the output of the following code:</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <pre><code>
+int a = 6;
+int b = a++;
+System.out.println(a);
+System.out.println(b);
+a = 6;
+b = ++a;
+System.out.println(a);
+System.out.println(b);
+    </code></pre>
+        <h4>Output:</h4>
+        <pre><code>
+7
+6
+7
+7
+    </code></pre>
+        <p><span>Explanation:</span><br/><br/>
+            - Initially, <code>a</code> is set to 6.<br/>
+            - <code>b = a++;</code> assigns the current value of <code>a</code> to <code>b</code>, and then increments <code>a</code> to 7. So, <code>b</code> gets the value 6, and <code>a</code> becomes 7.<br/>
+            - The first <code>System.out.println(a);</code> prints 7.<br/>
+            - The first <code>System.out.println(b);</code> prints 6.<br/>
+            - <code>a = 6;</code> resets <code>a</code> to 6.<br/>
+            - <code>b = ++a;</code> increments <code>a</code> to 7 before assigning its value to <code>b</code>, so both <code>a</code> and <code>b</code> become 7.<br/>
+            - The second <code>System.out.println(a);</code> prints 7.<br/>
+            - The second <code>System.out.println(b);</code> also prints 7.
+        </p>
+    </div>
+    <button class="accordion">2.27 Can different types of numeric values be used together in a computation?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            Yes, different types of numeric values can be used together in a computation. Java will automatically promote the smaller data type to the larger data type in the expression to avoid data loss. For example, if you add an <code>int</code> and a <code>double</code>, the <code>int</code> will be promoted to a <code>double</code> before the addition.
+        </p>
+    </div>
+
+    <button class="accordion">2.28 What does an explicit casting from a double to an int do with the fractional part of the double value? Does casting change the variable being cast?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            When you explicitly cast a <code>double</code> to an <code>int</code>, the fractional part of the <code>double</code> value is truncated, meaning it is removed. For example, casting <code>5.9</code> to an <code>int</code> results in <code>5</code>. Casting does not change the original variable; it only changes the value used in that specific expression.
+        </p>
+    </div>
+
+    <button class="accordion">2.29 Show the following output:</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <pre><code>
+float f = 12.5F;
+int i = (int)f;
+System.out.println("f is " + f);
+System.out.println("i is " + i);
+    </code></pre>
+        <h4>Output:</h4>
+        <pre><code>
+f is 12.5
+i is 12
+    </code></pre>
+        <p><span>Explanation:</span><br/><br/>
+            The output shows that the float <code>f</code> retains its value as <code>12.5</code>, but when it is cast to an <code>int</code>, the fractional part is removed, leaving <code>i</code> as <code>12</code>.
+        </p>
+    </div>
+
+    <button class="accordion">2.30 What will be the output if you change the expression in the following code from <code>(int)(tax * 100) / 100.0</code> to <code>(int)(tax * 100) / 100</code>?</button>
+    <div class="panel">
+        <h4>Original Code:</h4>
+        <pre><code>
+import java.util.Scanner;
+
+public class SalesTax {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter purchase amount: ");
+        double purchaseAmount = input.nextDouble();
+
+        double tax = purchaseAmount * 0.06;
+        System.out.println("Sales tax is $" + (int)(tax * 100) / 100.0);  // Original Expression
+    }
+}
+    </code></pre>
+
+        <h4>Modified Code:</h4>
+        <pre><code>
+import java.util.Scanner;
+
+public class SalesTax {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter purchase amount: ");
+        double purchaseAmount = input.nextDouble();
+
+        double tax = purchaseAmount * 0.06;
+        System.out.println("Sales tax is $" + (int)(tax * 100) / 100);  // Modified Expression
+    }
+}
+    </code></pre>
+
+        <p><span>Explanation:</span><br/><br/>
+            By changing the expression from <code>(int)(tax * 100) / 100.0</code> to <code>(int)(tax * 100) / 100</code>, the fractional part of the tax value is truncated. This results in an incorrect sales tax calculation, as the value is rounded down. For example, if the input purchase amount is <code>197.55</code>, the sales tax will be slightly less than the accurate value due to this truncation.
+        </p>
+    </div>
+
+
+    <button class="accordion">2.31 Show the output of the following code:</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <pre><code>
+double amount = 5;
+System.out.println(amount / 2);
+System.out.println(5 / 2);
+    </code></pre>
+        <h4>Output:</h4>
+        <pre><code>
+2.5
+2
+    </code></pre>
+        <p><span>Explanation:</span><br/><br/>
+            The first <code>System.out.println(amount / 2);</code> prints <code>2.5</code> because <code>amount</code> is a <code>double</code>. The second <code>System.out.println(5 / 2);</code> prints <code>2</code> because both <code>5</code> and <code>2</code> are integers, so integer division is performed, and the fractional part is discarded.
+        </p>
+    </div>
+    <button class="accordion">2.32 How would you write the following arithmetic expression?</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <p>How would you write the following arithmetic expression in Java?</p>
+        <pre><code>
+    -b + √(b^2 - 4ac)
+    -----------------
+            2a
+    </code></pre>
+
+        <h4>Java Code:</h4>
+        <pre><code>
+    double result = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
+    </code></pre>
+
+        <p><span>Explanation:</span><br/><br/>
+            The expression is translated into Java using the <code>Math.sqrt</code> method for the square root and <code>Math.pow</code> for the power. The division is performed after the square root and subtraction operations, following the correct order of operations.
+        </p>
+    </div>
+    <button class="accordion">2.33 Show the output with the input value 1.99</button>
+    <div class="panel">
+        <h4>Question:</h4>
+        <pre><code>
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a value: ");
+        double value = input.nextDouble();
+
+        System.out.println("The entered value is: " + value);
+        System.out.println("Value cast to int: " + (int)value);
+    }
+}
+    </code></pre>
+
+        <h4>Output:</h4>
+        <pre><code>
+Enter a value: 1.99
+The entered value is: 1.99
+Value cast to int: 1
+    </code></pre>
+
+        <p><span>Explanation:</span><br/>
+            - The first line prompts the user to enter a value, which is stored in the <code>value</code> variable.<br/>
+            - The entered value <code>1.99</code> is then printed as it is.<br/>
+            - The value is cast to an <code>int</code>, which removes the decimal part, resulting in <code>1</code>.
+        </p>
+    </div>
+    <button class="accordion">2.34 Can you declare a variable as int and later redeclare it as double?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            No, in Java, once a variable is declared with a specific type, it cannot be redeclared with a different type in the same scope. You would need to create a new variable with a different name if you want to use a different data type.
+        </p>
+    </div>
+
+    <button class="accordion">2.35 What is an integer overflow? Can floating-point operations cause overflow?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            <span>Integer Overflow:</span> Integer overflow occurs when an arithmetic operation results in a value that exceeds the range that can be represented by the integer type. For example, if you add 1 to the maximum value an <code>int</code> can hold, it wraps around to the minimum value.<br/><br/>
+            <span>Floating-Point Overflow:</span> Yes, floating-point operations can cause overflow. This happens when a calculation exceeds the largest possible value that can be represented by a <code>float</code> or <code>double</code>. The result is typically represented as positive or negative infinity.
+        </p>
+    </div>
+
+    <button class="accordion">2.36 Will overflow cause a runtime error?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            No, overflow will not cause a runtime error in Java. Instead, the value wraps around (for integer types) or becomes infinity (for floating-point types). However, this can lead to unexpected behavior and logic errors in the program.
+        </p>
+    </div>
+
+    <button class="accordion">2.37 What is a round-off error? Can integer operations cause round-off errors? Can floating-point operations cause round-off errors?</button>
+    <div class="panel">
+        <p><span>Answer:</span><br/><br/>
+            <span>Round-Off Error:</span> A round-off error occurs when a number is approximated to a shorter or less precise value due to the limitations of the data type's precision.<br/><br/>
+            <span>Integer Operations:</span> Integer operations do not cause round-off errors because they are exact within the range of the data type.<br/><br/>
+            <span>Floating-Point Operations:</span> Yes, floating-point operations can cause round-off errors because of the limited precision with which floating-point numbers are represented in computers. Small differences may be rounded during calculations, leading to inaccuracies.
+        </p>
+    </div>
+</div>
+
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+</body>
+</html>
+
