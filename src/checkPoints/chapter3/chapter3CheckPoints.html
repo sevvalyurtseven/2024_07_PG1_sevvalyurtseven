@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction To Elementary Programming</title>
+    <link rel="stylesheet" href="../resources/styles.css">
+</head>
+<body>
+<div class="container">
+    <!-- Başlık ve Alt Başlık -->
+    <header>
+        <h1>INTRODUCTION TO JAVA PROGRAMMING - Y. Daniel Liang</h1>
+        <h2>Chapter 3: Selections</h2>
+    </header>
+
+    <button class="accordion">3.1 List six relational operators.</button>
+    <div class="panel">
+        <p>
+            <span>Answer:</span>
+        <ul>
+            <li><span>&gt;</span> : Greater than</li>
+            <li><span>&lt;</span> : Less than</li>
+            <li><span>&gt;=</span> : Greater than or equal to</li>
+            <li><span>&lt;=</span> : Less than or equal to</li>
+            <li><span>==</span> : Equal to</li>
+            <li><span>!=</span> : Not equal to</li>
+        </ul>
+        </p>
+    </div>
+
+    <button class="accordion">3.2 Assuming that x is 1, show the result of the following Boolean expressions:</button>
+    <div class="panel">
+        <p>
+            <span>Answer:</span>
+        <ul>
+            <li><span>(x &gt; 0)</span> : <strong>True</strong> (1 is greater than 0)</li>
+            <li><span>(x &lt; 0)</span> : <strong>False</strong> (1 is not less than 0)</li>
+            <li><span>(x != 0)</span> : <strong>True</strong> (1 is not equal to 0)</li>
+            <li><span>(x &gt;= 0)</span> : <strong>True</strong> (1 is greater than or equal to 0)</li>
+            <li><span>(x != 1)</span> : <strong>False</strong> (1 is equal to 1, so not not equal)</li>
+        </ul>
+        </p>
+    </div>
+
+    <button class="accordion">3.3 Can the following conversions involving casting be allowed? Write a test program to verify your answer.</button>
+    <div class="panel">
+        <p>
+            <span>Question:</span>
+        <ul>
+            <li><code>boolean b = true;</code></li>
+            <li><code>int i = (int) b;</code></li>
+            <li><code>int i = 1;</code></li>
+            <li><code>boolean b = (boolean) i;</code></li>
+        </ul>
+        <br/>
+        <span>Answer:</span>
+        <p>
+            <span>Explanation:</span> In Java, direct casting between <code>boolean</code> and <code>int</code> is not allowed because they represent fundamentally different data types. Here's why:
+        </p>
+        <p>
+            <strong>1. <code>boolean b = true;</code></strong><br/>
+            This is a valid statement. A <code>boolean</code> variable can be assigned the value <code>true</code> or <code>false</code>.
+        </p>
+        <p>
+            <strong>2. <code>int i = (int) b;</code></strong><br/>
+            This line will cause a compilation error. In Java, <code>boolean</code> and <code>int</code> are not directly compatible types. <code>boolean</code> is typically used for logical values (true or false), while <code>int</code> is used for numerical values. There is no direct conversion between these types.
+        </p>
+        <p>
+            <strong>3. <code>int i = 1;</code></strong><br/>
+            This is a valid statement. An <code>int</code> variable can be assigned any integer value.
+        </p>
+        <p>
+            <strong>4. <code>boolean b = (boolean) i;</code></strong><br/>
+            This line will also cause a compilation error. Similar to the second statement, <code>boolean</code> and <code>int</code> are not directly compatible. You cannot cast an integer directly to a boolean.
+        </p>
+        <p>
+            Below is a sample test program to demonstrate the compilation errors:
+        </p>
+        <pre><code class="code">
+public class TestCasting {
+    public static void main(String[] args) {
+        boolean b = true;
+
+        <span class="comment">// This will cause a compilation error</span>
+        <span class="comment">// int i = (int) b;</span>
+
+        int i = 1;
+
+        <span class="comment">// This will also cause a compilation error</span>
+        <span class="comment">// boolean b2 = (boolean) i;</span>
+
+        System.out.println("These castings are not allowed in Java.");
+    }
+}
+</code></pre>
+        <p>
+            If you try to run this program with the commented lines uncommented, the compiler will throw errors, indicating that these conversions are not allowed.
+        </p>
+        </p>
+    </div>
+
+    <button class="accordion">3.4 Write an if statement that assigns 1 to x if y is greater than 0.</button>
+    <div class="panel">
+        <pre><code class="code">
+int x;
+int y = 5;
+
+<span class="comment">// If y is greater than 0, assign 1 to x</span>
+if (y &gt; 0) {
+    x = 1;
+}
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.5 Write an if statement that increases pay by 3% if score is greater than 90.</button>
+    <div class="panel">
+        <pre><code class="code">
+double pay = 1000.0;
+int score = 95;
+
+<span class="comment">// If score is greater than 90, increase pay by 3%</span>
+if (score &gt; 90) {
+    pay *= 1.03;
+}
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.6 Write an if statement that increases pay by 3% if score is greater than 90, otherwise increases pay by 1%.</button>
+    <div class="panel">
+        <pre><code class="code">
+double pay = 1000.0;
+int score = 85;
+
+<span class="comment">// If score is greater than 90, increase pay by 3%, otherwise increase by 1%</span>
+if (score &gt; 90) {
+    pay *= 1.03;
+} else {
+    pay *= 1.01;
+}
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.7 What is the output of the code in (a) and (b) if number is 30? What if number is 35?</button>
+    <div class="panel">
+        <pre><code class="code">
+<span class="comment">// Part (a) - if number is 30</span>
+if (number % 2 == 0)
+    System.out.println(number + " is even");
+if (number % 5 == 0)
+    System.out.println(number + " is multiple of 5");
+
+<span class="comment">// Output when number is 30:</span>
+// 30 is even
+// 30 is multiple of 5
+
+<span class="comment">// Output when number is 35:</span>
+// 35 is multiple of 5
+
+<span class="comment">// Part (b) - if number is 30</span>
+if (number % 2 == 0)
+    System.out.println(number + " is even");
+else if (number % 5 == 0)
+    System.out.println(number + " is multiple of 5");
+
+<span class="comment">// Output when number is 30:</span>
+// 30 is even
+
+<span class="comment">// Output when number is 35:</span>
+// 35 is multiple of 5
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.8 Suppose x = 3 and y = 2; show the output, if any, of the following code. What is the output if x = 3 and y = 4? What is the output if x = 2 and y = 2? Draw a flowchart of the code.</button>
+    <div class="panel">
+        <pre><code class="code">
+int x = 3, y = 2, z;
+
+<span class="comment">// If x &gt; 2, check if y &gt; 2, if so, calculate z = x + y</span>
+if (x &gt; 2) {
+    if (y &gt; 2) {
+        z = x + y;
+        System.out.println("z is " + z);
+    }
+} else {
+    System.out.println("x is " + x);
+}
+
+<span class="comment">// Outputs:</span>
+<span class="comment">// If x = 3 and y = 2: No output</span>
+<span class="comment">// If x = 3 and y = 4: z is 7</span>
+<span class="comment">// If x = 2 and y = 2: x is 2</span>
+        </code></pre>
+        <p><span>Flowchart:</span>
+            <br/>1. Start
+            <br/>2. Check if x &gt; 2
+            <br/>3. If yes, check if y &gt; 2
+            <br/>4. If yes, calculate z = x + y and print "z is " + z
+            <br/>5. If no, print "x is " + x
+            <br/>6. End
+        </p>
+    </div>
+
+    <button class="accordion">3.9 Suppose x = 2 and y = 3. Show the output, if any, of the following code. What is the output if x = 3 and y = 2? What is the output if x = 3 and y = 3?</button>
+    <div class="panel">
+        <pre><code class="code">
+int x = 2, y = 3;
+
+<span class="comment">// Check if x &gt; 2, if so, check if y &gt; 2</span>
+if (x &gt; 2) {
+    if (y &gt; 2) {
+        int z = x + y;
+        System.out.println("z is " + z);
+    }
+} else {
+    System.out.println("x is " + x);
+}
+
+<span class="comment">// Outputs:</span>
+<span class="comment">// If x = 2 and y = 3: x is 2</span>
+<span class="comment">// If x = 3 and y = 2: x is 3</span>
+<span class="comment">// If x = 3 and y = 3: z is 6</span>
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.10 What is wrong in the following code?</button>
+    <div class="panel">
+        <pre><code class="code">
+<span class="comment">// Original code:</span>
+if (score &gt;= 60.0)
+    System.out.println("D");
+else if (score &gt;= 70.0)
+    System.out.println("C");
+else if (score &gt;= 80.0)
+    System.out.println("B");
+else if (score &gt;= 90.0)
+    System.out.println("A");
+else
+    System.out.println("F");
+
+<span class="comment">// What's wrong:</span>
+<span class="comment">// The order of the conditions is incorrect. Higher grades should be checked first.</span>
+
+<span class="comment">// Corrected code:</span>
+if (score &gt;= 90.0)
+    System.out.println("A");
+else if (score &gt;= 80.0)
+    System.out.println("B");
+else if (score &gt;= 70.0)
+    System.out.println("C");
+else if (score &gt;= 60.0)
+    System.out.println("D");
+else
+    System.out.println("F");
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.11 Which of the following statements are equivalent? Which ones are correctly indented?</button>
+    <div class="panel">
+        <p>
+            <strong>Statement (a):</strong>
+        </p>
+        <pre><code class="code">
+if (i &gt; 0)
+    if (j &gt; 0)
+        x = 0;
+    else
+        z = 0;
+        </code></pre>
+
+        <p>
+            <strong>Statement (b):</strong>
+        </p>
+        <pre><code class="code">
+if (i &gt; 0) {
+    if (j &gt; 0)
+        x = 0;
+    else if (k &gt; 0)
+        y = 0;
+    else
+        z = 0;
+}
+        </code></pre>
+
+        <p>
+            <strong>Statement (c):</strong>
+        </p>
+        <pre><code class="code">
+if (i &gt; 0)
+    if (j &gt; 0)
+        x = 0;
+else if (k &gt; 0)
+    y = 0;
+else
+    z = 0;
+        </code></pre>
+
+        <p>
+            <strong>Statement (d):</strong>
+        </p>
+        <pre><code class="code">
+if (i &gt; 0) {
+    if (j &gt; 0) {
+        x = 0;
+    } else {
+        if (k &gt; 0)
+            y = 0;
+        else
+            z = 0;
+    }
+}
+        </code></pre>
+
+        <p>
+            <span>Answer:</span><br/>
+            - <strong>(a) and (c)</strong> are equivalent.<br/>
+            - <strong>(b) and (d)</strong> are equivalent.<br/><br/>
+            However, <strong>(c)</strong> is not correctly indented and might cause confusion. The correct indentation is shown in <strong>(a)</strong>.<br/><br/>
+            <strong>(d)</strong> is correctly indented.
+        </p>
+    </div>
+
+    <button class="accordion">3.12 Rewrite the following statement using a Boolean expression:</button>
+    <div class="panel">
+        <p>
+            <strong>Original Statement:</strong><br/>
+            <code>if (count % 10 == 0)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;newline = true;</code><br/>
+            <code>else</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;newline = false;</code><br/><br/>
+
+            <strong>Solution:</strong><br/>
+            <code>newline = (count % 10 == 0);</code>
+        </p>
+    </div>
+
+    <button class="accordion">3.13 Are the following statements correct? Which one is better?</button>
+    <div class="panel">
+        <p>
+            <strong>First Code:</strong><br/>
+            <code>if (age &lt; 16)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Cannot get a driver's license");</code><br/>
+            <code>if (age &gt;= 16)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Can get a driver's license");</code><br/><br/>
+
+            <strong>Second Code:</strong><br/>
+            <code>if (age &lt; 16)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Cannot get a driver's license");</code><br/>
+            <code>else</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Can get a driver's license");</code><br/><br/>
+
+            <span>Explanation:</span><br/>
+            - Both statements are correct.<br/>
+            - The second approach is better because it avoids checking <code>age &gt;= 16</code> explicitly when the <code>else</code> clause already covers this case. It's more efficient and cleaner.
+        </p>
+    </div>
+
+    <button class="accordion">3.14 What is the output of the following code if `number` is 14, 15, or 30?</button>
+    <div class="panel">
+        <p>
+            <strong>Code:</strong><br/>
+            <code>if (number % 2 == 0)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(number + " is even");</code><br/>
+            <code>if (number % 5 == 0)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(number + " is multiple of 5");</code><br/><br/>
+
+            <strong>Output:</strong><br/>
+            - <strong>If <code>number</code> is 14:</strong><br/>
+            `14 is even`<br/><br/>
+            - <strong>If <code>number</code> is 15:</strong><br/>
+            `15 is multiple of 5`<br/><br/>
+            - <strong>If <code>number</code> is 30:</strong><br/>
+            `30 is even`<br/>
+            `30 is multiple of 5`
+        </p>
+    </div>
+
+    <button class="accordion">3.15 Which of the following is a possible output from invoking Math.random()?</button>
+    <div class="panel">
+        <p>
+            <span>Answer:</span><br/>
+            The method <code>Math.random()</code> generates a random floating-point number in the range [0.0, 1.0).
+            <br/><br/>
+            Among the options given, the possible outputs from invoking <code>Math.random()</code> are:
+            <br/><br/>
+            <strong>0.5</strong>, <strong>1.0</strong>, <strong>0.0</strong>, <strong>0.234</strong>
+            <br/><br/>
+            <span>Explanation:</span><br/>
+        <ul>
+            <li><strong>323.4</strong>: Not possible, as it’s outside the range [0.0, 1.0).</li>
+            <li><strong>34</strong>: Not possible, as it’s an integer and outside the range [0.0, 1.0).</li>
+            <li><strong>1.0</strong>: Possible, but note that <code>Math.random()</code> will never actually return 1.0 because it's exclusive of 1.0.</li>
+        </ul>
+        </p>
+    </div>
+
+    <button class="accordion">3.16 Random Integer Generation</button>
+    <div class="panel">
+        <p>
+            <span>Question 3.16 (a):</span><br/>
+            How do you generate a random integer <code>i</code> such that <code>0 ≤ i < 20</code>?
+        </p>
+        <p>
+            <span>Answer:</span><br/>
+            <code>int i = (int)(Math.random() * 20);</code><br/><br/>
+            This generates a random integer between 0 (inclusive) and 20 (exclusive).
+        </p>
+
+        <p>
+            <span>Question 3.16 (b):</span><br/>
+            How do you generate a random integer <code>i</code> such that <code>10 ≤ i < 20</code>?
+        </p>
+        <p>
+            <span>Answer:</span><br/>
+            <code>int i = 10 + (int)(Math.random() * 10);</code><br/><br/>
+            This generates a random integer between 10 (inclusive) and 20 (exclusive).
+        </p>
+
+        <p>
+            <span>Question 3.16 (c):</span><br/>
+            How do you generate a random integer <code>i</code> such that <code>10 ≤ i ≤ 50</code>?
+        </p>
+        <p>
+            <span>Answer:</span><br/>
+            <code>int i = 10 + (int)(Math.random() * 41);</code><br/><br/>
+            This generates a random integer between 10 (inclusive) and 51 (exclusive), which is equivalent to 10 ≤ i ≤ 50.
+        </p>
+
+        <p>
+            <span>Question 3.16 (d):</span><br/>
+            Write an expression that returns 0 or 1 randomly.
+        </p>
+        <p>
+            <span>Answer:</span><br/>
+            <code>int i = (int)(Math.random() * 2);</code><br/><br/>
+            This generates either 0 or 1 with equal probability.
+        </p>
+    </div>
+
+    <button class="accordion">3.17 Are the following two statements equivalent?</button>
+    <div class="panel">
+        <p>
+            <span>Question:</span><br/>
+            <strong>Code 1:</strong>
+        <pre><code class="code">
+if (income &lt;= 10000)
+    tax = income * 0.1;
+else if (income &lt;= 20000)
+    tax = 1000 + (income - 10000) * 0.15;
+            </code></pre>
+        <strong>Code 2:</strong>
+        <pre><code class="code">
+if (income &lt;= 10000)
+    tax = income * 0.1;
+else if (income &gt; 10000 && income &lt;= 20000)
+    tax = 1000 + (income - 10000) * 0.15;
+            </code></pre>
+        </p>
+        <p>
+            <span>Answer:</span><br/>
+            Yes, these two statements are equivalent. Here’s why:
+        </p>
+        <ul>
+            <li>In the <strong>first statement</strong>, the second `else if` implicitly assumes that `income` is greater than `10,000` (since the first condition was false) and less than or equal to `20,000`.</li>
+            <li>In the <strong>second statement</strong>, this logic is made explicit by checking `income &gt; 10000`.</li>
+        </ul>
+        <p>
+            <strong>Conclusion:</strong> Both statements produce the same behavior and are logically equivalent.
+        </p>
+    </div>
+    <button class="accordion">3.18 Assuming that x is 1, show the result of the following Boolean expressions.</button>
+    <div class="panel">
+        <p>
+            <span>Question:</span><br/>
+            Assume <code>x = 1</code>. Evaluate the following Boolean expressions:
+        </p>
+        <pre><code class="code">
+(true) && (3 > 4)                // Result: false
+!(x > 0) && (x > 0)              // Result: false
+(x > 0) || (x < 0)               // Result: true
+(x != 0) || (x == 0)             // Result: true
+(x >= 0) || (x < 0)              // Result: true
+(x != 1) == !(x == 1)            // Result: true
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.19 (a) Write a Boolean expression that evaluates to true if a number stored in variable <code>num</code> is between 1 and 100.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean result = (num &gt;= 1) && (num &lt;= 100);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.19 (b) Write a Boolean expression that evaluates to true if a number stored in variable <code>num</code> is between 1 and 100 or the number is negative.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean result = ((num &gt;= 1) && (num &lt;= 100)) || (num &lt; 0);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.20 (a) Write a Boolean expression for <code>0 ≤ x - 5 ≤ 4.5</code>.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean result = (x - 5 &gt;= 0) && (x - 5 &lt;= 4.5);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.20 (b) Write a Boolean expression for <code>0 ≤ x - 5 ≤ 7</code>.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean result = (x - 5 &gt;= 0) && (x - 5 &lt;= 7);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.21 Assume that <code>x</code> and <code>y</code> are <code>int</code> type. Which of the following are legal Java expressions?</button>
+    <div class="panel">
+        <p>
+            <strong>Expressions:</strong>
+        </p>
+        <ul>
+            <li><code>x &gt; y &gt; 0</code> - <strong>Illegal</strong> (Chained comparisons are not allowed)</li>
+            <li><code>x = y &amp;&amp; y</code> - <strong>Illegal</strong> (`&amp;&amp;` is not a valid operator for assignment)</li>
+            <li><code>x /= y</code> - <strong>Legal</strong> (Division assignment)</li>
+            <li><code>x or y</code> - <strong>Illegal</strong> (`or` is not a valid Java operator, use `||` instead)</li>
+            <li><code>x and y</code> - <strong>Illegal</strong> (`and` is not a valid Java operator, use `&amp;&amp;` instead)</li>
+            <li><code>(x != 0) || (x = 0)</code> - <strong>Illegal</strong> (Assignment inside an expression must be valid)</li>
+        </ul>
+    </div>
+
+    <button class="accordion">3.22 Are the following two expressions the same?</button>
+    <div class="panel">
+        <pre><code class="code">
+a. x % 2 == 0 && x % 3 == 0
+b. x % 6 == 0
+        </code></pre>
+        <p>
+            <span>Answer:</span><br/>
+            Yes, these expressions are equivalent because if a number is divisible by both 2 and 3, it is also divisible by 6.
+        </p>
+    </div>
+
+    <button class="accordion">3.23 What is the value of the expression <code>x &gt;= 50 &amp;&amp; x &lt;= 100</code> if <code>x</code> is 45, 67, or 101?</button>
+    <div class="panel">
+        <pre><code class="code">
+x = 45   // Result: false
+x = 67   // Result: true
+x = 101  // Result: false
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.24 Suppose, when you run the following program, you enter the input 2 3 6 from the console. What is the output?</button>
+    <div class="panel">
+        <pre><code class="code">
+public class Test {
+    public static void main(String[] args) {
+        java.util.Scanner input = new java.util.Scanner(System.in);
+        double x = input.nextDouble();
+        double y = input.nextDouble();
+        double z = input.nextDouble();
+
+        System.out.println("(x &lt; y &amp;&amp; y &lt; z) is " + (x &lt; y &amp;&amp; y &lt; z));
+        System.out.println("(x &lt; y || y &lt; z) is " + (x &lt; y || y &lt; z));
+        System.out.println("!(x &lt; y) is " + !(x &lt; y));
+        System.out.println("(x + y &lt; z) is " + (x + y &lt; z));
+        System.out.println("(x + y &gt; z) is " + (x + y &gt; z));
+    }
+}
+        </code></pre>
+        <p>
+            <strong>Output:</strong><br/>
+            <code>(x &lt; y &amp;&amp; y &lt; z) is true</code><br/>
+            <code>(x &lt; y || y &lt; z) is true</code><br/>
+            <code>!(x &lt; y) is false</code><br/>
+            <code>(x + y &lt; z) is false</code><br/>
+            <code>(x + y &gt; z) is true</code>
+        </p>
+    </div>
+
+    <button class="accordion">3.25 Write a Boolean expression that evaluates to true if age is greater than 13 and less than 18.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean result = (age &gt; 13) &amp;&amp; (age &lt; 18);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.26 Write a Boolean expression that evaluates to true if weight is greater than 50 pounds or height is greater than 60 inches.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean result = (weight &gt; 50) || (height &gt; 60);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.27 Write a Boolean expression that evaluates to true if weight is greater than 50 pounds and height is greater than 60 inches.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean result = (weight &gt; 50) &amp;&amp; (height &gt; 60);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.28 Write a Boolean expression that evaluates to true if either weight is greater than 50 pounds or height is greater than 60 inches, but not both.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean result = (weight &gt; 50) ^ (height &gt; 60);
+        </code></pre>
+        <p><span>Explanation:</span> The <code>^</code> operator in Java is the "exclusive or" (XOR) operator, which evaluates to true if only one of the operands is true.</p>
+    </div>
+
+    <button class="accordion">3.29 What data types are required for a switch variable? If the keyword break is not used after a case is processed, what is the next statement to be executed? Can you convert a switch statement to an equivalent if statement, or vice versa? What are the advantages of using a switch statement?</button>
+    <div class="panel">
+        <p>
+            <span>Answer:</span><br/><br/>
+            <strong>1. Data Types for a Switch Variable:</strong><br/>
+            - In Java, the switch variable can be of the following types: <code>int</code>, <code>char</code>, <code>byte</code>, <code>short</code>, <code>enum</code>, <code>String</code>, and <code>Integer</code> wrapper types.<br/><br/>
+
+            <strong>2. What happens if break is not used?</strong><br/>
+            - If the keyword <code>break</code> is not used after a case is processed, the execution will "fall through" to the next case, meaning the subsequent case(s) will be executed regardless of their conditions.<br/><br/>
+
+            <strong>3. Converting Between Switch and If-Else:</strong><br/>
+            - Yes, you can convert a switch statement to an equivalent if-else statement and vice versa. However, a switch statement is generally more concise and easier to read when there are multiple conditions based on a single variable.<br/><br/>
+
+            <strong>4. Advantages of Using a Switch Statement:</strong><br/>
+            - Switch statements can be more efficient than if-else chains because they are often implemented using a jump table in the background.
+            - They improve code readability when checking a single variable against multiple values.
+        </p>
+    </div>
+
+    <button class="accordion">3.30 What is y after the following switch statement is executed? Rewrite the code using an if-else statement.</button>
+    <div class="panel">
+        <pre><code class="code">
+int x = 3, y = 3;
+switch (x + 3) {
+    case 6:
+        y = 1;
+    default:
+        y += 1;
+}
+// y is now 2
+        </code></pre>
+        <p>
+            <span>Explanation:</span> The switch statement does not have a <code>break</code> after the <code>case 6</code>, so after setting <code>y</code> to 1, the default block also executes, incrementing <code>y</code> by 1. Thus, <code>y</code> becomes 2.<br/><br/>
+
+            <strong>Rewritten using if-else:</strong>
+        </p>
+        <pre><code class="code">
+int x = 3, y = 3;
+if (x + 3 == 6) {
+    y = 1;
+}
+y += 1;
+// y is now 2
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.31 What is x after the following if-else statement is executed? Use a switch statement to rewrite it and draw the flowchart for the new switch statement.</button>
+    <div class="panel">
+        <pre><code class="code">
+int x = 1, a = 3;
+if (a == 1) {
+    x += 5;
+} else if (a == 2) {
+    x += 10;
+} else if (a == 3) {
+    x += 16;
+} else if (a == 4) {
+    x += 34;
+}
+// x is now 17
+        </code></pre>
+        <p>
+            <span>Explanation:</span> The value of <code>x</code> is incremented by 16 because <code>a == 3</code>. Thus, <code>x</code> becomes 17.<br/><br/>
+
+            <strong>Rewritten using switch:</strong>
+        </p>
+        <pre><code class="code">
+int x = 1, a = 3;
+switch (a) {
+    case 1:
+        x += 5;
+        break;
+    case 2:
+        x += 10;
+        break;
+    case 3:
+        x += 16;
+        break;
+    case 4:
+        x += 34;
+        break;
+}
+// x is now 17
+        </code></pre>
+        <p>
+            <span>Flowchart Explanation:</span><br/>
+            1. Start<br/>
+            2. Evaluate the value of <code>a</code><br/>
+            3. If <code>a == 1</code>, add 5 to <code>x</code> and exit.<br/>
+            4. If <code>a == 2</code>, add 10 to <code>x</code> and exit.<br/>
+            5. If <code>a == 3</code>, add 16 to <code>x</code> and exit.<br/>
+            6. If <code>a == 4</code>, add 34 to <code>x</code> and exit.<br/>
+            7. End
+        </p>
+    </div>
+
+    <button class="accordion">3.32 Write a switch statement that displays Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, if day is 0, 1, 2, 3, 4, 5, 6, accordingly.</button>
+    <div class="panel">
+        <pre><code class="code">
+int day = 3; // Assume day is 3 for this example
+
+switch (day) {
+    case 0:
+        System.out.println("Sunday");
+        break;
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    case 3:
+        System.out.println("Wednesday");
+        break;
+    case 4:
+        System.out.println("Thursday");
+        break;
+    case 5:
+        System.out.println("Friday");
+        break;
+    case 6:
+        System.out.println("Saturday");
+        break;
+    default:
+        System.out.println("Invalid day");
+        break;
+}
+// Output: Wednesday
+        </code></pre>
+        <p>
+            <span>Explanation:</span> The switch statement checks the value of <code>day</code> and prints the corresponding day of the week.
+        </p>
+    </div>
+
+    <button class="accordion">3.33 Suppose that, when you run the following program, you enter the input 2 3 6 from the console. What is the output?</button>
+    <div class="panel">
+        <pre><code class="code">
+public class Test {
+    public static void main(String[] args) {
+        java.util.Scanner input = new java.util.Scanner(System.in);
+        double x = input.nextDouble();
+        double y = input.nextDouble();
+        double z = input.nextDouble();
+        System.out.println((x &lt; y &amp;&amp; y &lt; z) ? "sorted" : "not sorted");
+    }
+}
+        </code></pre>
+        <p>
+            <span>Explanation:</span> When the input <code>2 3 6</code> is provided, the program checks whether <code>x &lt; y</code> and <code>y &lt; z</code>. Since <code>2 &lt; 3</code> and <code>3 &lt; 6</code>, the output will be <strong>sorted</strong>.
+        </p>
+    </div>
+
+    <button class="accordion">3.34 Rewrite the following if statements using the conditional operator.</button>
+    <div class="panel">
+        <pre><code class="code">
+int ticketPrice;
+if (ages &gt;= 16)
+    ticketPrice = 20;
+else
+    ticketPrice = 10;
+
+<span class="comment">// Rewritten using the conditional operator:</span>
+ticketPrice = (ages &gt;= 16) ? 20 : 10;
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.35 Rewrite the following conditional expressions using if-else statements.</button>
+    <div class="panel">
+        <p>
+            <strong>a. Conditional Expression:</strong>
+        </p>
+        <pre><code class="code">
+score = (x &gt; 10) ? 3 * scale : 4 * scale;
+
+<span class="comment">// Rewritten using if-else:</span>
+if (x &gt; 10) {
+    score = 3 * scale;
+} else {
+    score = 4 * scale;
+}
+        </code></pre>
+
+        <p>
+            <strong>b. Conditional Expression:</strong>
+        </p>
+        <pre><code class="code">
+tax = (income &gt; 10000) ? income * 0.2 : income * 0.17 + 1000;
+
+<span class="comment">// Rewritten using if-else:</span>
+if (income &gt; 10000) {
+    tax = income * 0.2;
+} else {
+    tax = income * 0.17 + 1000;
+}
+        </code></pre>
+
+        <p>
+            <strong>c. Conditional Expression:</strong>
+        </p>
+        <pre><code class="code">
+System.out.println((number % 3 == 0) ? i : j);
+
+<span class="comment">// Rewritten using if-else:</span>
+if (number % 3 == 0) {
+    System.out.println(i);
+} else {
+    System.out.println(j);
+}
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.36 Write a conditional expression that returns -1 or 1 randomly.</button>
+    <div class="panel">
+        <pre><code class="code">
+int result = (Math.random() &lt; 0.5) ? -1 : 1;
+
+<span class="comment">// Explanation:</span>
+<span class="comment">// Math.random() generates a double between 0.0 (inclusive) and 1.0 (exclusive).</span>
+<span class="comment">// If the generated value is less than 0.5, return -1; otherwise, return 1.</span>
+        </code></pre>
+    </div>
+    <button class="accordion">3.37 List the precedence order of the Boolean operators. Evaluate the following expressions:</button>
+    <div class="panel">
+        <p><strong>Precedence Order of Boolean Operators:</strong></p>
+        <ul>
+            <li><strong>1. `!`</strong> (Logical NOT)</li>
+            <li><strong>2. `&amp;&amp;`</strong> (Logical AND)</li>
+            <li><strong>3. `||`</strong> (Logical OR)</li>
+        </ul>
+
+        <p><strong>Expression Evaluations:</strong></p>
+        <pre><code class="code">
+true || true &amp;&amp; false
+
+<span class="comment">// Evaluate `true &amp;&amp; false` first (AND has higher precedence):</span>
+<span class="comment">// true &amp;&amp; false => false</span>
+<span class="comment">// Now evaluate `true || false`:</span>
+<span class="comment">// true || false => true</span>
+<span class="comment">// Final Result: true</span>
+
+true &amp;&amp; true || false
+
+<span class="comment">// Evaluate `true &amp;&amp; true` first (AND has higher precedence):</span>
+<span class="comment">// true &amp;&amp; true => true</span>
+<span class="comment">// Now evaluate `true || false`:</span>
+<span class="comment">// true || false => true</span>
+<span class="comment">// Final Result: true</span>
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.38 True or false? All the binary operators except `=` are left associative.</button>
+    <div class="panel">
+        <p><span>Answer:</span> <strong>True.</strong> All binary operators except the assignment operator (`=`) are left associative. This means that in expressions with multiple operators of the same precedence, evaluation occurs from left to right.</p>
+    </div>
+
+    <button class="accordion">3.39 Evaluate the following expressions:</button>
+    <div class="panel">
+        <pre><code class="code">
+2 * 2 - 3 &gt; 2 &amp;&amp; 4 - 2 &gt; 5
+
+<span class="comment">// Evaluate `2 * 2`:</span>
+<span class="comment">// 2 * 2 = 4</span>
+<span class="comment">// Now evaluate `4 - 3`:</span>
+<span class="comment">// 4 - 3 = 1</span>
+<span class="comment">// Check `1 &gt; 2`:</span>
+<span class="comment">// 1 &gt; 2 => false</span>
+<span class="comment">// Next, evaluate `4 - 2`:</span>
+<span class="comment">// 4 - 2 = 2</span>
+<span class="comment">// Check `2 &gt; 5`:</span>
+<span class="comment">// 2 &gt; 5 => false</span>
+<span class="comment">// Final result is `false &amp;&amp; false` => false</span>
+
+2 * 2 - 3 &gt; 2 || 4 - 2 &gt; 5
+
+<span class="comment">// Evaluate `2 * 2`:</span>
+<span class="comment">// 2 * 2 = 4</span>
+<span class="comment">// Now evaluate `4 - 3`:</span>
+<span class="comment">// 4 - 3 = 1</span>
+<span class="comment">// Check `1 &gt; 2`:</span>
+<span class="comment">// 1 &gt; 2 => false</span>
+<span class="comment">// Next, evaluate `4 - 2`:</span>
+<span class="comment">// 4 - 2 = 2</span>
+<span class="comment">// Check `2 &gt; 5`:</span>
+<span class="comment">// 2 &gt; 5 => false</span>
+<span class="comment">// Final result is `false || false` => false</span>
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.40 Is `(x &gt; 0 &amp;&amp; x &lt; 10)` the same as `((x &gt; 0) &amp;&amp; (x &lt; 10))`? Is `(x &gt; 0 || x &lt; 10)` the same as `((x &gt; 0) || (x &lt; 10))`? Is `(x &gt; 0 || x &lt; 10 &amp;&amp; y &lt; 0)` the same as `(x &gt; 0 || (x &lt; 10 &amp;&amp; y &lt; 0))`?</button>
+    <div class="panel">
+        <p><span>Answer:</span></p>
+        <ul>
+            <li><span>1. `(x &gt; 0 &amp;&amp; x &lt; 10)` is the same as `((x &gt; 0) &amp;&amp; (x &lt; 10))`</span><br>
+                - Yes, they are equivalent because the order of evaluation is the same whether the parentheses are present or not.
+            </li>
+            <li><span>2. `(x &gt; 0 || x &lt; 10)` is the same as `((x &gt; 0) || (x &lt; 10))`</span><br>
+                - Yes, they are equivalent because the order of evaluation is the same whether the parentheses are present or not.
+            </li>
+            <li><span>3. `(x &gt; 0 || x &lt; 10 &amp;&amp; y &lt; 0)` is the same as `(x &gt; 0 || (x &lt; 10 &amp;&amp; y &lt; 0))`</span><br>
+                - No, they are not the same. Due to the precedence of operators, `&amp;&amp;` is evaluated before `||`. Therefore, `x &gt; 0 || x &lt; 10 &amp;&amp; y &lt; 0` evaluates to `x &gt; 0 || (x &lt; 10 &amp;&amp; y &lt; 0)` by default. Explicit parentheses are required to change the grouping.
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+</body>
+</html>
+
+
+
