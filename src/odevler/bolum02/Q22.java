@@ -20,7 +20,18 @@ public class Q22 {
         int numberOfDollars = amount / 100;
         int numberOfCents = amount % 100;
 
-        // Doları ve kuruşu ekrana yazdırın
-        System.out.println("Your amount " + numberOfDollars + " dollars and " + numberOfCents + " cents");
+        // Kalan miktar üzerinden çeyreklik, onluk ve beş kuruşları bul
+        int numberOfQuarterCents = numberOfCents / 25;
+        numberOfCents = numberOfCents % 25;
+        int numberOfDimeCents = numberOfCents / 10;
+        numberOfCents = numberOfCents % 10;
+        int numberOfNickelCents = numberOfCents / 5;
+        numberOfCents = numberOfCents % 5;
+
+        // Kalan miktar kuruşları temsil eder
+        int numberOfPennies = numberOfCents;
+
+        // Doları ve kuruşları ekrana yazdıralım
+        System.out.println("Your amount " + numberOfDollars + " dollars, " + numberOfQuarterCents + " quartercents, " + numberOfDimeCents + " dimecents, " + numberOfNickelCents + " nickelcents, and " + numberOfPennies + " cents");
     }
 }
