@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction To Elementary Programming</title>
+    <link rel="stylesheet" href="../resources/styles.css">
+</head>
+<body>
+<div class="container">
+    <!-- Başlık ve Alt Başlık -->
+    <header>
+        <h1>INTRODUCTION TO JAVA PROGRAMMING - Y. Daniel Liang</h1>
+        <h2>Chapter 3: Selections</h2>
+    </header>
+
+    <button class="accordion">3.1 Altı ilişkisel operatör listeleyin.</button>
+    <div class="panel">
+        <p>
+            <span>Cevap:</span>
+        <ul>
+            <li><span>&gt;</span> : Büyüktür</li>
+            <li><span>&lt;</span> : Küçüktür</li>
+            <li><span>&gt;=</span> : Büyük eşittir</li>
+            <li><span>&lt;=</span> : Küçük eşittir</li>
+            <li><span>==</span> : Eşittir</li>
+            <li><span>!=</span> : Eşit değildir</li>
+        </ul>
+        </p>
+    </div>
+
+    <button class="accordion">3.2 x'in 1 olduğunu varsayarsak, aşağıdaki Boolean ifadelerinin sonucunu gösterin:</button>
+    <div class="panel">
+        <p>
+            <span>Cevap:</span>
+        <ul>
+            <li><span>(x &gt; 0)</span> : <strong>Doğru</strong> (1, 0'dan büyüktür)</li>
+            <li><span>(x &lt; 0)</span> : <strong>Yanlış</strong> (1, 0'dan küçük değildir)</li>
+            <li><span>(x != 0)</span> : <strong>Doğru</strong> (1, 0'a eşit değildir)</li>
+            <li><span>(x &gt;= 0)</span> : <strong>Doğru</strong> (1, 0'dan büyük veya eşittir)</li>
+            <li><span>(x != 1)</span> : <strong>Yanlış</strong> (1, 1'e eşittir, bu yüzden eşit değildir ifadesi yanlış olur)</li>
+        </ul>
+        </p>
+    </div>
+
+    <button class="accordion">3.3 Aşağıdaki dönüşümlere izin verilebilir mi? Cevabınızı doğrulamak için bir test programı yazın.</button>
+    <div class="panel">
+        <p>
+            <span>Soru:</span>
+        <ul>
+            <li><code>boolean b = true;</code></li>
+            <li><code>int i = (int) b;</code></li>
+            <li><code>int i = 1;</code></li>
+            <li><code>boolean b = (boolean) i;</code></li>
+        </ul>
+        <br/>
+        <span>Cevap:</span>
+        <p>
+            <span>Açıklama:</span> Java'da, <code>boolean</code> ve <code>int</code> arasında doğrudan dönüştürme yapılmasına izin verilmez çünkü bu veri tipleri temelde farklıdır. İşte nedenleri:
+        </p>
+        <p>
+            <strong>1. <code>boolean b = true;</code></strong><br/>
+            Bu geçerli bir ifadedir. Bir <code>boolean</code> değişkenine <code>true</code> veya <code>false</code> değeri atanabilir.
+        </p>
+        <p>
+            <strong>2. <code>int i = (int) b;</code></strong><br/>
+            Bu satır derleme hatasına neden olur. Java'da, <code>boolean</code> ve <code>int</code> doğrudan uyumlu veri türleri değildir. <code>boolean</code> genellikle mantıksal değerler (true veya false) için kullanılırken, <code>int</code> sayısal değerler için kullanılır. Bu türler arasında doğrudan bir dönüşüm yoktur.
+        </p>
+        <p>
+            <strong>3. <code>int i = 1;</code></strong><br/>
+            Bu geçerli bir ifadedir. Bir <code>int</code> değişkenine herhangi bir tamsayı değeri atanabilir.
+        </p>
+        <p>
+            <strong>4. <code>boolean b = (boolean) i;</code></strong><br/>
+            Bu satır da derleme hatasına neden olur. İkinci ifadeye benzer şekilde, <code>boolean</code> ve <code>int</code> doğrudan uyumlu değildir. Bir tam sayıyı doğrudan bir boolean'a dönüştüremezsiniz.
+        </p>
+        <p>
+            Derleme hatalarını göstermek için aşağıda bir test programı verilmiştir:
+        </p>
+        <pre><code class="code">
+public class TestCasting {
+    public static void main(String[] args) {
+        boolean b = true;
+
+        <span class="comment">// Bu derleme hatasına neden olur</span>
+        <span class="comment">// int i = (int) b;</span>
+
+        int i = 1;
+
+        <span class="comment">// Bu da derleme hatasına neden olur</span>
+        <span class="comment">// boolean b2 = (boolean) i;</span>
+
+        System.out.println("Bu dönüştürmelere Java'da izin verilmez.");
+    }
+}
+</code></pre>
+        <p>
+            Bu programı, yorum satırlarını kaldırarak çalıştırmayı denerseniz, derleyici bu dönüştürmelerin izin verilmediğini belirten hatalar verecektir.
+        </p>
+        </p>
+    </div>
+
+    <button class="accordion">3.4 y, 0'dan büyükse x'e 1 atayan bir if ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+int x;
+int y = 5;
+
+<span class="comment">// y 0'dan büyükse, x'e 1 atayın</span>
+if (y &gt; 0) {
+    x = 1;
+}
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.5 Skor 90'dan büyükse maaşı %3 artıran bir if ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+double maas = 1000.0;
+int skor = 95;
+
+<span class="comment">// Skor 90'dan büyükse, maaşı %3 artırın</span>
+if (skor &gt; 90) {
+    maas *= 1.03;
+}
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.6 Skor 90'dan büyükse maaşı %3 artıran, aksi takdirde maaşı %1 artıran bir if ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+double maas = 1000.0;
+int skor = 85;
+
+<span class="comment">// Skor 90'dan büyükse, maaşı %3 artırın, aksi takdirde %1 artırın</span>
+if (skor &gt; 90) {
+    maas *= 1.03;
+} else {
+    maas *= 1.01;
+}
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.7 (a) ve (b) kodlarının çıktısı, sayı 30 ise nedir? Peki ya sayı 35 ise?</button>
+    <div class="panel">
+        <pre><code class="code">
+<span class="comment">// Kısım (a) - sayı 30 ise</span>
+if (sayı % 2 == 0)
+    System.out.println(sayı + " çifttir");
+if (sayı % 5 == 0)
+    System.out.println(sayı + " 5'in katıdır");
+
+<span class="comment">// sayı 30 ise çıktı:</span>
+// 30 çifttir
+// 30, 5'in katıdır
+
+<span class="comment">// sayı 35 ise çıktı:</span>
+// 35, 5'in katıdır
+
+<span class="comment">// Kısım (b) - sayı 30 ise</span>
+if (sayı % 2 == 0)
+    System.out.println(sayı + " çifttir");
+else if (sayı % 5 == 0)
+    System.out.println(sayı + " 5'in katıdır");
+
+<span class="comment">// sayı 30 ise çıktı:</span>
+// 30 çifttir
+
+<span class="comment">// sayı 35 ise çıktı:</span>
+// 35, 5'in katıdır
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.8 x = 3 ve y = 2 olduğunda çıktıyı gösterin; x = 3 ve y = 4 olduğunda çıktı nedir? x = 2 ve y = 2 olduğunda çıktı nedir? Kodu için bir akış diyagramı çizin.</button>
+    <div class="panel">
+        <pre><code class="code">
+int x = 3, y = 2, z;
+
+<span class="comment">// Eğer x &gt; 2 ise, y &gt; 2 olup olmadığını kontrol edin, eğer öyleyse z = x + y'yi hesaplayın</span>
+if (x &gt; 2) {
+    if (y &gt; 2) {
+        z = x + y;
+        System.out.println("z = " + z);
+    }
+} else {
+    System.out.println("x = " + x);
+}
+
+<span class="comment">// Çıktılar:</span>
+<span class="comment">// x = 3 ve y = 2 ise: Çıktı yok</span>
+<span class="comment">// x = 3 ve y = 4 ise: z = 7</span>
+<span class="comment">// x = 2 ve y = 2 ise: x = 2</span>
+        </code></pre>
+        <p><span>Akış Diyagramı:</span>
+            <br/>1. Başla
+            <br/>2. x &gt; 2 olup olmadığını kontrol edin
+            <br/>3. Eğer evet ise, y &gt; 2 olup olmadığını kontrol edin
+            <br/>4. Eğer evet ise, z = x + y'yi hesaplayın ve "z = " + z'yi yazdırın
+            <br/>5. Eğer hayır ise, "x = " + x'yi yazdırın
+            <br/>6. Bitir
+        </p>
+    </div>
+
+    <button class="accordion">3.9 x = 2 ve y = 3 olduğunu varsayın. Aşağıdaki kodun çıktısını gösterin. x = 3 ve y = 2 olduğunda çıktı nedir? x = 3 ve y = 3 olduğunda çıktı nedir?</button>
+    <div class="panel">
+        <pre><code class="code">
+int x = 2, y = 3;
+
+<span class="comment">// x &gt; 2 ise, y &gt; 2 olup olmadığını kontrol edin</span>
+if (x &gt; 2) {
+    if (y &gt; 2) {
+        int z = x + y;
+        System.out.println("z = " + z);
+    }
+} else {
+    System.out.println("x = " + x);
+}
+
+<span class="comment">// Çıktılar:</span>
+<span class="comment">// x = 2 ve y = 3 ise: x = 2</span>
+<span class="comment">// x = 3 ve y = 2 ise: x = 3</span>
+<span class="comment">// x = 3 ve y = 3 ise: z = 6</span>
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.10 Aşağıdaki kodda ne yanlış?</button>
+    <div class="panel">
+        <pre><code class="code">
+<span class="comment">// Orijinal kod:</span>
+if (puan &gt;= 60.0)
+    System.out.println("D");
+else if (puan &gt;= 70.0)
+    System.out.println("C");
+else if (puan &gt;= 80.0)
+    System.out.println("B");
+else if (puan &gt;= 90.0)
+    System.out.println("A");
+else
+    System.out.println("F");
+
+<span class="comment">// Yanlış olan nedir:</span>
+<span class="comment">// Şartların sırası yanlıştır. Daha yüksek puanlar önce kontrol edilmelidir.</span>
+
+<span class="comment">// Düzeltilmiş kod:</span>
+if (puan &gt;= 90.0)
+    System.out.println("A");
+else if (puan &gt;= 80.0)
+    System.out.println("B");
+else if (puan &gt;= 70.0)
+    System.out.println("C");
+else if (puan &gt;= 60.0)
+    System.out.println("D");
+else
+    System.out.println("F");
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.11 Aşağıdaki ifadelerden hangileri eşdeğer? Hangileri doğru bir şekilde girintilenmiş?</button>
+    <div class="panel">
+        <p>
+            <strong>Açıklama (a):</strong>
+        </p>
+        <pre><code class="code">
+if (i &gt; 0)
+    if (j &gt; 0)
+        x = 0;
+    else
+        z = 0;
+        </code></pre>
+
+        <p>
+            <strong>Açıklama (b):</strong>
+        </p>
+        <pre><code class="code">
+if (i &gt; 0) {
+    if (j &gt; 0)
+        x = 0;
+    else if (k &gt; 0)
+        y = 0;
+    else
+        z = 0;
+}
+        </code></pre>
+
+        <p>
+            <strong>Açıklama (c):</strong>
+        </p>
+        <pre><code class="code">
+if (i &gt; 0)
+    if (j &gt; 0)
+        x = 0;
+else if (k &gt; 0)
+    y = 0;
+else
+    z = 0;
+        </code></pre>
+
+        <p>
+            <strong>Açıklama (d):</strong>
+        </p>
+        <pre><code class="code">
+if (i &gt; 0) {
+    if (j &gt; 0) {
+        x = 0;
+    } else {
+        if (k &gt; 0)
+            y = 0;
+        else
+            z = 0;
+    }
+}
+        </code></pre>
+
+        <p>
+            <span>Cevap:</span><br/>
+            - <strong>(a) ve (c)</strong> eşdeğerdir.<br/>
+            - <strong>(b) ve (d)</strong> eşdeğerdir.<br/><br/>
+            Ancak, <strong>(c)</strong> doğru bir şekilde girintilenmemiştir ve kafa karışıklığına neden olabilir. Doğru girintileme <strong>(a)</strong>'da gösterilmiştir.<br/><br/>
+            <strong>(d)</strong> doğru bir şekilde girintilenmiştir.
+        </p>
+    </div>
+
+    <button class="accordion">3.12 Aşağıdaki ifadeyi bir Boolean ifadesi kullanarak yeniden yazın:</button>
+    <div class="panel">
+        <p>
+            <strong>Orijinal İfade:</strong><br/>
+            <code>if (sayac % 10 == 0)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;yeniSatir = true;</code><br/>
+            <code>else</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;yeniSatir = false;</code><br/><br/>
+
+            <strong>Çözüm:</strong><br/>
+            <code>yeniSatir = (sayac % 10 == 0);</code>
+        </p>
+    </div>
+
+    <button class="accordion">3.13 Aşağıdaki ifadeler doğru mu? Hangisi daha iyidir?</button>
+    <div class="panel">
+        <p>
+            <strong>İlk Kod:</strong><br/>
+            <code>if (yas &lt; 16)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;Ehliyet alamazsınız</code><br/>
+            <code>if (yas &gt;= 16)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;Ehliyet alabilirsiniz</code><br/><br/>
+
+            <strong>İkinci Kod:</strong><br/>
+            <code>if (yas &lt; 16)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;Ehliyet alamazsınız</code><br/>
+            <code>else</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;Ehliyet alabilirsiniz</code><br/><br/>
+
+            <span>Açıklama:</span><br/>
+            - Her iki ifade de doğrudur.<br/>
+            - İkinci yaklaşım daha iyidir çünkü <code>yas &gt;= 16</code>'yı açıkça kontrol etmekten kaçınır, <code>else</code> durumu zaten bu durumu kapsar. Daha verimli ve temizdir.
+        </p>
+    </div>
+
+    <button class="accordion">3.14 Aşağıdaki kodun çıktısı 14, 15 veya 30 ise nedir?</button>
+    <div class="panel">
+        <p>
+            <strong>Kod:</strong><br/>
+            <code>if (sayı % 2 == 0)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(sayı + " çifttir");</code><br/>
+            <code>if (sayı % 5 == 0)</code><br/>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(sayı + " 5'in katıdır");</code><br/><br/>
+
+            <strong>Çıktı:</strong><br/>
+            - <strong>Eğer <code>sayı</code> 14 ise:</strong><br/>
+            `14 çifttir`<br/><br/>
+            - <strong>Eğer <code>sayı</code> 15 ise:</strong><br/>
+            `15, 5'in katıdır`<br/><br/>
+            - <strong>Eğer <code>sayı</code> 30 ise:</strong><br/>
+            `30 çifttir`<br/>
+            `30, 5'in katıdır`
+        </p>
+    </div>
+
+    <button class="accordion">3.15 Aşağıdakilerden hangisi Math.random() metodunun olası bir çıktısıdır?</button>
+    <div class="panel">
+        <p>
+            <span>Cevap:</span><br/>
+            <code>Math.random()</code> metodu [0.0, 1.0) aralığında rastgele bir kayan nokta sayısı üretir.
+            <br/><br/>
+            Verilen seçenekler arasında, <code>Math.random()</code> metodunun olası çıktıları şunlardır:
+            <br/><br/>
+            <strong>0.5</strong>, <strong>1.0</strong>, <strong>0.0</strong>, <strong>0.234</strong>
+            <br/><br/>
+            <span>Açıklama:</span><br/>
+        <ul>
+            <li><strong>323.4</strong>: Mümkün değil, çünkü [0.0, 1.0) aralığının dışındadır.</li>
+            <li><strong>34</strong>: Mümkün değil, çünkü bir tam sayıdır ve [0.0, 1.0) aralığının dışındadır.</li>
+            <li><strong>1.0</strong>: Mümkün, ancak <code>Math.random()</code> metodunun 1.0'ı döndürmeyeceğini unutmayın çünkü bu değer 1.0'ı dışlar.</li>
+        </ul>
+        </p>
+    </div>
+
+    <button class="accordion">3.16 Rastgele Tamsayı Üretme</button>
+    <div class="panel">
+        <p>
+            <span>Soru 3.16 (a):</span><br/>
+            <code>0 ≤ i < 20</code> olacak şekilde rastgele bir tamsayı <code>i</code> nasıl üretilir?
+        </p>
+        <p>
+            <span>Cevap:</span><br/>
+            <code>int i = (int)(Math.random() * 20);</code><br/><br/>
+            Bu, 0 (dahil) ve 20 (hariç) arasında rastgele bir tamsayı üretir.
+        </p>
+
+        <p>
+            <span>Soru 3.16 (b):</span><br/>
+            <code>10 ≤ i < 20</code> olacak şekilde rastgele bir tamsayı <code>i</code> nasıl üretilir?
+        </p>
+        <p>
+            <span>Cevap:</span><br/>
+            <code>int i = 10 + (int)(Math.random() * 10);</code><br/><br/>
+            Bu, 10 (dahil) ve 20 (hariç) arasında rastgele bir tamsayı üretir.
+        </p>
+
+        <p>
+            <span>Soru 3.16 (c):</span><br/>
+            <code>10 ≤ i ≤ 50</code> olacak şekilde rastgele bir tamsayı <code>i</code> nasıl üretilir?
+        </p>
+        <p>
+            <span>Cevap:</span><br/>
+            <code>int i = 10 + (int)(Math.random() * 41);</code><br/><br/>
+            Bu, 10 (dahil) ve 51 (hariç) arasında rastgele bir tamsayı üretir, bu da 10 ≤ i ≤ 50 ifadesine eşdeğerdir.
+        </p>
+
+        <p>
+            <span>Soru 3.16 (d):</span><br/>
+            Rastgele olarak 0 veya 1 döndüren bir ifade yazın.
+        </p>
+        <p>
+            <span>Cevap:</span><br/>
+            <code>int i = (int)(Math.random() * 2);</code><br/><br/>
+            Bu, 0 veya 1'i eşit olasılıkla üretir.
+        </p>
+    </div>
+
+    <button class="accordion">3.17 Aşağıdaki iki ifade eşdeğer midir?</button>
+    <div class="panel">
+        <p>
+            <span>Soru:</span><br/>
+            <strong>Kod 1:</strong>
+        <pre><code class="code">
+if (gelir &lt;= 10000)
+    vergi = gelir * 0.1;
+else if (gelir &lt;= 20000)
+    vergi = 1000 + (gelir - 10000) * 0.15;
+            </code></pre>
+        <strong>Kod 2:</strong>
+        <pre><code class="code">
+if (gelir &lt;= 10000)
+    vergi = gelir * 0.1;
+else if (gelir &gt; 10000 && gelir &lt;= 20000)
+    vergi = 1000 + (gelir - 10000) * 0.15;
+            </code></pre>
+        </p>
+        <p>
+            <span>Cevap:</span><br/>
+            Evet, bu iki ifade eşdeğerdir. İşte nedeni:
+        </p>
+        <ul>
+            <li><strong>İlk ifadede</strong>, ikinci `else if` açıkça belirtilmemiş olsa da, bu durum `gelir`in 10.000'in üzerinde olduğunu (çünkü ilk koşul yanlıştı) ve 20.000'in altında veya eşit olduğunu varsayar.</li>
+            <li><strong>İkinci ifadede</strong>, bu mantık, `gelir &gt; 10000` kontrolüyle açık hale getirilmiştir.</li>
+        </ul>
+        <p>
+            <strong>Sonuç:</strong> Her iki ifade de aynı davranışı üretir ve mantıksal olarak eşdeğerdir.
+        </p>
+    </div>
+
+    <button class="accordion">3.18 x'in 1 olduğunu varsayarsak, aşağıdaki Boolean ifadelerinin sonucunu gösterin.</button>
+    <div class="panel">
+        <p>
+            <span>Soru:</span><br/>
+            <code>x = 1</code> olduğunu varsayın. Aşağıdaki Boolean ifadelerini değerlendirin:
+        </p>
+        <pre><code class="code">
+(true) &amp;&amp; (3 &gt; 4)                // Sonuç: Yanlış
+!(x &gt; 0) &amp;&amp; (x &gt; 0)              // Sonuç: Yanlış
+(x &gt; 0) || (x &lt; 0)               // Sonuç: Doğru
+(x != 0) || (x == 0)             // Sonuç: Doğru
+(x &gt;= 0) || (x &lt; 0)              // Sonuç: Doğru
+(x != 1) == !(x == 1)            // Sonuç: Doğru
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.19 (a) num değişkeninde saklanan bir sayı 1 ile 100 arasında ise true döndüren bir Boolean ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean sonuc = (num &gt;= 1) &amp;&amp; (num &lt;= 100);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.19 (b) num değişkeninde saklanan bir sayı 1 ile 100 arasında veya sayı negatifse true döndüren bir Boolean ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean sonuc = ((num &gt;= 1) &amp;&amp; (num &lt;= 100)) || (num &lt; 0);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.20 (a) <code>0 ≤ x - 5 ≤ 4.5</code> için bir Boolean ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean sonuc = (x - 5 &gt;= 0) &amp;&amp; (x - 5 &lt;= 4.5);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.20 (b) <code>0 ≤ x - 5 ≤ 7</code> için bir Boolean ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean sonuc = (x - 5 &gt;= 0) &amp;&amp; (x - 5 &lt;= 7);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.21 x ve y'nin int tipi olduğunu varsayın. Aşağıdakilerden hangileri yasal Java ifadeleridir?</button>
+    <div class="panel">
+        <p>
+            <strong>İfadeler:</strong>
+        </p>
+        <ul>
+            <li><code>x &gt; y &gt; 0</code> - <strong>Yasal değil</strong> (Zincirleme karşılaştırmalara izin verilmez)</li>
+            <li><code>x = y &amp;&amp; y</code> - <strong>Yasal değil</strong> (`&amp;&amp;` atama için geçerli bir operatör değildir)</li>
+            <li><code>x /= y</code> - <strong>Yasal</strong> (Bölme ataması)</li>
+            <li><code>x or y</code> - <strong>Yasal değil</strong> (`or` geçerli bir Java operatörü değildir, bunun yerine `||` kullanın)</li>
+            <li><code>x and y</code> - <strong>Yasal değil</strong> (`and` geçerli bir Java operatörü değildir, bunun yerine `&amp;&amp;` kullanın)</li>
+            <li><code>(x != 0) || (x = 0)</code> - <strong>Yasal değil</strong> (Bir ifadenin içinde atamanın geçerli olması gerekir)</li>
+        </ul>
+    </div>
+
+    <button class="accordion">3.22 Aşağıdaki iki ifade aynı mı?</button>
+    <div class="panel">
+        <pre><code class="code">
+a. x % 2 == 0 &amp;&amp; x % 3 == 0
+b. x % 6 == 0
+        </code></pre>
+        <p>
+            <span>Cevap:</span><br/>
+            Evet, bu ifadeler aynıdır çünkü bir sayı hem 2 hem de 3'e bölünebiliyorsa, 6'ya da bölünebilir.
+        </p>
+    </div>
+
+    <button class="accordion">3.23 Aşağıdaki ifadede x'in değeri 45, 67 veya 101 ise ifadenin değeri nedir?</button>
+    <div class="panel">
+        <pre><code class="code">
+x = 45   // Sonuç: Yanlış
+x = 67   // Sonuç: Doğru
+x = 101  // Sonuç: Yanlış
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.24 Aşağıdaki programı çalıştırdığınızda, 2 3 6 girdisini girerseniz çıktı nedir?</button>
+    <div class="panel">
+        <pre><code class="code">
+public class Test {
+    public static void main(String[] args) {
+        java.util.Scanner input = new java.util.Scanner(System.in);
+        double x = input.nextDouble();
+        double y = input.nextDouble();
+        double z = input.nextDouble();
+
+        System.out.println("(x &lt; y &amp;&amp; y &lt; z) " + (x &lt; y &amp;&amp; y &lt; z));
+        System.out.println("(x &lt; y || y &lt; z) " + (x &lt; y || y &lt; z));
+        System.out.println("!(x &lt; y) " + !(x &lt; y));
+        System.out.println("(x + y &lt; z) " + (x + y &lt; z));
+        System.out.println("(x + y &gt; z) " + (x + y &gt; z));
+    }
+}
+        </code></pre>
+        <p>
+            <strong>Çıktı:</strong><br/>
+            <code>(x &lt; y &amp;&amp; y &lt; z) true</code><br/>
+            <code>(x &lt; y || y &lt; z) true</code><br/>
+            <code>!(x &lt; y) false</code><br/>
+            <code>(x + y &lt; z) false</code><br/>
+            <code>(x + y &gt; z) true</code>
+        </p>
+    </div>
+
+    <button class="accordion">3.25 Yaş 13'ten büyük ve 18'den küçükse true döndüren bir Boolean ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean sonuc = (yas &gt; 13) &amp;&amp; (yas &lt; 18);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.26 Ağırlık 50 pound'dan büyük veya boy 60 inçten büyükse true döndüren bir Boolean ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean sonuc = (agirlik &gt; 50) || (boy &gt; 60);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.27 Ağırlık 50 pound'dan büyük ve boy 60 inçten büyükse true döndüren bir Boolean ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean sonuc = (agirlik &gt; 50) &amp;&amp; (boy &gt; 60);
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.28 Ağırlık 50 pound'dan büyükse veya boy 60 inçten büyükse ama her ikisi birden değilse true döndüren bir Boolean ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+boolean sonuc = (agirlik &gt; 50) ^ (boy &gt; 60);
+        </code></pre>
+        <p><span>Açıklama:</span> Java'da <code>^</code> operatörü "özel veya" (XOR) operatörüdür, bu yalnızca bir operand doğru olduğunda true döner.</p>
+    </div>
+
+    <button class="accordion">3.29 switch değişkeni için hangi veri tipleri gereklidir? Bir case işlendiğinde break anahtarı kullanılmazsa bir sonraki çalıştırılacak ifade nedir? Bir switch ifadesini eşdeğer bir if ifadesine dönüştürebilir misiniz veya tam tersi? switch ifadesi kullanmanın avantajları nelerdir?</button>
+    <div class="panel">
+        <p>
+            <span>Cevap:</span><br/><br/>
+            <strong>1. switch Değişkeni İçin Veri Tipleri:</strong><br/>
+            - Java'da switch değişkeni aşağıdaki tiplerde olabilir: <code>int</code>, <code>char</code>, <code>byte</code>, <code>short</code>, <code>enum</code>, <code>String</code> ve <code>Integer</code> sarmalayıcı tipler.<br/><br/>
+
+            <strong>2. break Kullanılmazsa Ne Olur?</strong><br/>
+            - Eğer break anahtarı bir case işleminden sonra kullanılmazsa, yürütme bir sonraki case'e "düşer", yani koşullara bakılmaksızın sonraki case(ler) çalıştırılır.<br/><br/>
+
+            <strong>3. switch ile if-else Arasında Dönüştürme:</strong><br/>
+            - Evet, bir switch ifadesini eşdeğer bir if-else ifadesine ve tam tersine dönüştürebilirsiniz. Ancak, bir switch ifadesi genellikle tek bir değişkene dayalı birden fazla koşul olduğunda daha özlü ve okunması daha kolaydır.<br/><br/>
+
+            <strong>4. switch İfadesi Kullanmanın Avantajları:</strong><br/>
+            - Switch ifadeleri, if-else zincirlerine göre daha verimli olabilir çünkü arka planda genellikle bir atlama tablosu kullanılarak uygulanır.
+            - Tek bir değişkeni birden fazla değerle karşılaştırırken kodun okunabilirliğini artırır.
+        </p>
+    </div>
+
+    <button class="accordion">3.30 Aşağıdaki switch ifadesi yürütüldüğünde y'nin değeri nedir? Kodunuzu if-else ifadesi kullanarak yeniden yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+int x = 3, y = 3;
+switch (x + 3) {
+    case 6:
+        y = 1;
+    default:
+        y += 1;
+}
+// y şimdi 2'dir
+        </code></pre>
+        <p>
+            <span>Açıklama:</span> switch ifadesi, <code>case 6</code>'dan sonra bir <code>break</code> ifadesine sahip değildir, bu yüzden y'ye 1 atandıktan sonra, default bloğu da çalışır ve y 1 artırılır. Bu yüzden y 2 olur.<br/><br/>
+
+            <strong>if-else kullanılarak yeniden yazılmış hali:</strong>
+        </p>
+        <pre><code class="code">
+int x = 3, y = 3;
+if (x + 3 == 6) {
+    y = 1;
+}
+y += 1;
+// y şimdi 2'dir
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.31 Aşağıdaki if-else ifadesi yürütüldüğünde x'in değeri nedir? Bunu bir switch ifadesi kullanarak yeniden yazın ve yeni switch ifadesi için bir akış diyagramı çizin.</button>
+    <div class="panel">
+        <pre><code class="code">
+int x = 1, a = 3;
+if (a == 1) {
+    x += 5;
+} else if (a == 2) {
+    x += 10;
+} else if (a == 3) {
+    x += 16;
+} else if (a == 4) {
+    x += 34;
+}
+// x şimdi 17'dir
+        </code></pre>
+        <p>
+            <span>Açıklama:</span> <code>x</code>'in değeri 16 artırılır çünkü <code>a == 3</code>. Böylece <code>x</code> 17 olur.<br/><br/>
+
+            <strong>switch kullanılarak yeniden yazılmış hali:</strong>
+        </p>
+        <pre><code class="code">
+int x = 1, a = 3;
+switch (a) {
+    case 1:
+        x += 5;
+        break;
+    case 2:
+        x += 10;
+        break;
+    case 3:
+        x += 16;
+        break;
+    case 4:
+        x += 34;
+        break;
+}
+// x şimdi 17'dir
+        </code></pre>
+        <p>
+            <span>Akış Diyagramı Açıklaması:</span><br/>
+            1. Başla<br/>
+            2. a'nın değerini değerlendirin<br/>
+            3. Eğer a == 1 ise, x'e 5 ekleyin ve çıkın.<br/>
+            4. Eğer a == 2 ise, x'e 10 ekleyin ve çıkın.<br/>
+            5. Eğer a == 3 ise, x'e 16 ekleyin ve çıkın.<br/>
+            6. Eğer a == 4 ise, x'e 34 ekleyin ve çıkın.<br/>
+            7. Bitir
+        </p>
+    </div>
+
+    <button class="accordion">3.32 day 0, 1, 2, 3, 4, 5, 6 olduğunda, Pazar, Pazartesi, Salı, Çarşamba, Perşembe, Cuma, Cumartesi günlerini gösteren bir switch ifadesi yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+int gun = 3; // Bu örnek için gun'un 3 olduğunu varsayın
+
+switch (gun) {
+    case 0:
+        System.out.println("Pazar");
+        break;
+    case 1:
+        System.out.println("Pazartesi");
+        break;
+    case 2:
+        System.out.println("Salı");
+        break;
+    case 3:
+        System.out.println("Çarşamba");
+        break;
+    case 4:
+        System.out.println("Perşembe");
+        break;
+    case 5:
+        System.out.println("Cuma");
+        break;
+    case 6:
+        System.out.println("Cumartesi");
+        break;
+    default:
+        System.out.println("Geçersiz gün");
+        break;
+}
+// Çıktı: Çarşamba
+        </code></pre>
+        <p>
+            <span>Açıklama:</span> switch ifadesi, <code>gun</code>'un değerini kontrol eder ve haftanın karşılık gelen gününü yazdırır.
+        </p>
+    </div>
+
+    <button class="accordion">3.33 Aşağıdaki programı çalıştırdığınızda, 2 3 6 girdisini girerseniz çıktı nedir?</button>
+    <div class="panel">
+        <pre><code class="code">
+public class Test {
+    public static void main(String[] args) {
+        java.util.Scanner input = new java.util.Scanner(System.in);
+        double x = input.nextDouble();
+        double y = input.nextDouble();
+        double z = input.nextDouble();
+        System.out.println((x &lt; y &amp;&amp; y &lt; z) ? "sıralı" : "sıralı değil");
+    }
+}
+        </code></pre>
+        <p>
+            <span>Açıklama:</span> Girdi olarak <code>2 3 6</code> sağlandığında, program <code>x &lt; y</code> ve <code>y &lt; z</code> olup olmadığını kontrol eder. <code>2 &lt; 3</code> ve <code>3 &lt; 6</code> olduğu için, çıktı <strong>sıralı</strong> olacaktır.
+        </p>
+    </div>
+
+    <button class="accordion">3.34 Aşağıdaki if ifadelerini şartlı operatör kullanarak yeniden yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+int biletFiyati;
+if (yas &gt;= 16)
+    biletFiyati = 20;
+else
+    biletFiyati = 10;
+
+<span class="comment">// Şartlı operatör kullanılarak yeniden yazılmış hali:</span>
+biletFiyati = (yas &gt;= 16) ? 20 : 10;
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.35 Aşağıdaki şartlı ifadeleri if-else ifadeleri kullanarak yeniden yazın.</button>
+    <div class="panel">
+        <p>
+            <strong>a. Şartlı İfade:</strong>
+        </p>
+        <pre><code class="code">
+puan = (x &gt; 10) ? 3 * olcek : 4 * olcek;
+
+<span class="comment">// if-else kullanılarak yeniden yazılmış hali:</span>
+if (x &gt; 10) {
+    puan = 3 * olcek;
+} else {
+    puan = 4 * olcek;
+}
+        </code></pre>
+
+        <p>
+            <strong>b. Şartlı İfade:</strong>
+        </p>
+        <pre><code class="code">
+vergi = (gelir &gt; 10000) ? gelir * 0.2 : gelir * 0.17 + 1000;
+
+<span class="comment">// if-else kullanılarak yeniden yazılmış hali:</span>
+if (gelir &gt; 10000) {
+    vergi = gelir * 0.2;
+} else {
+    vergi = gelir * 0.17 + 1000;
+}
+        </code></pre>
+
+        <p>
+            <strong>c. Şartlı İfade:</strong>
+        </p>
+        <pre><code class="code">
+System.out.println((sayı % 3 == 0) ? i : j);
+
+<span class="comment">// if-else kullanılarak yeniden yazılmış hali:</span>
+if (sayı % 3 == 0) {
+    System.out.println(i);
+} else {
+    System.out.println(j);
+}
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.36 Rastgele olarak -1 veya 1 döndüren bir şartlı ifade yazın.</button>
+    <div class="panel">
+        <pre><code class="code">
+int sonuc = (Math.random() &lt; 0.5) ? -1 : 1;
+
+<span class="comment">// Açıklama:</span>
+<span class="comment">// Math.random() 0.0 (dahil) ile 1.0 (hariç) arasında bir double döndürür.</span>
+<span class="comment">// Eğer üretilen değer 0.5'ten küçükse, -1 döner; aksi takdirde 1 döner.</span>
+        </code></pre>
+    </div>
+    <button class="accordion">3.37 Boolean operatörlerinin öncelik sırasını listeleyin. Aşağıdaki ifadeleri değerlendirin:</button>
+    <div class="panel">
+        <p><strong>Boolean Operatörlerinin Öncelik Sırası:</strong></p>
+        <ul>
+            <li><strong>1. `!`</strong> (Mantıksal DEĞİL)</li>
+            <li><strong>2. `&amp;&amp;`</strong> (Mantıksal VE)</li>
+            <li><strong>3. `||`</strong> (Mantıksal VEYA)</li>
+        </ul>
+
+        <p><strong>İfade Değerlendirmeleri:</strong></p>
+        <pre><code class="code">
+true || true &amp;&amp; false
+
+<span class="comment">// Önce `true &amp;&amp; false` değerlendirilir (VE daha yüksek önceliğe sahiptir):</span>
+<span class="comment">// true &amp;&amp; false => false</span>
+<span class="comment">// Şimdi `true || false` değerlendirilir:</span>
+<span class="comment">// true || false => true</span>
+<span class="comment">// Nihai Sonuç: true</span>
+
+true &amp;&amp; true || false
+
+<span class="comment">// Önce `true &amp;&amp; true` değerlendirilir (VE daha yüksek önceliğe sahiptir):</span>
+<span class="comment">// true &amp;&amp; true => true</span>
+<span class="comment">// Şimdi `true || false` değerlendirilir:</span>
+<span class="comment">// true || false => true</span>
+<span class="comment">// Nihai Sonuç: true</span>
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.38 Doğru mu, yanlış mı? `=` dışındaki tüm ikili operatörler soldan birleşimlidir.</button>
+    <div class="panel">
+        <p><span>Cevap:</span> <strong>Doğru.</strong> Atama operatörü (`=`) dışındaki tüm ikili operatörler soldan birleşimlidir. Bu, aynı önceliğe sahip birden fazla operatörle yapılan ifadelerde değerlendirmenin soldan sağa doğru yapıldığı anlamına gelir.</p>
+    </div>
+
+    <button class="accordion">3.39 Aşağıdaki ifadeleri değerlendirin:</button>
+    <div class="panel">
+        <pre><code class="code">
+2 * 2 - 3 &gt; 2 &amp;&amp; 4 - 2 &gt; 5
+
+<span class="comment">// `2 * 2` değerlendirilir:</span>
+<span class="comment">// 2 * 2 = 4</span>
+<span class="comment">// Şimdi `4 - 3` değerlendirilir:</span>
+<span class="comment">// 4 - 3 = 1</span>
+<span class="comment">// `1 &gt; 2` kontrol edilir:</span>
+<span class="comment">// 1 &gt; 2 => false</span>
+<span class="comment">// Sonra `4 - 2` değerlendirilir:</span>
+<span class="comment">// 4 - 2 = 2</span>
+<span class="comment">// `2 &gt; 5` kontrol edilir:</span>
+<span class="comment">// 2 &gt; 5 => false</span>
+<span class="comment">// Nihai sonuç `false &amp;&amp; false` => false</span>
+
+2 * 2 - 3 &gt; 2 || 4 - 2 &gt; 5
+
+<span class="comment">// `2 * 2` değerlendirilir:</span>
+<span class="comment">// 2 * 2 = 4</span>
+<span class="comment">// Şimdi `4 - 3` değerlendirilir:</span>
+<span class="comment">// 4 - 3 = 1</span>
+<span class="comment">// `1 &gt; 2` kontrol edilir:</span>
+<span class="comment">// 1 &gt; 2 => false</span>
+<span class="comment">// Sonra `4 - 2` değerlendirilir:</span>
+<span class="comment">// 4 - 2 = 2</span>
+<span class="comment">// `2 &gt; 5` kontrol edilir:</span>
+<span class="comment">// 2 &gt; 5 => false</span>
+<span class="comment">// Nihai sonuç `false || false` => false</span>
+        </code></pre>
+    </div>
+
+    <button class="accordion">3.40 `(x &gt; 0 &amp;&amp; x &lt; 10)` ifadesi `((x &gt; 0) &amp;&amp; (x &lt; 10))` ile aynı mı? `(x &gt; 0 || x &lt; 10)` ifadesi `((x &gt; 0) || (x &lt; 10))` ile aynı mı? `(x &gt; 0 || x &lt; 10 &amp;&amp; y &lt; 0)` ifadesi `(x &gt; 0 || (x &lt; 10 &amp;&amp; y &lt; 0))` ile aynı mı?</button>
+    <div class="panel">
+        <p><span>Cevap:</span></p>
+        <ul>
+            <li><span>1. `(x &gt; 0 &amp;&amp; x &lt; 10)` ifadesi `((x &gt; 0) &amp;&amp; (x &lt; 10))` ile aynı mı?</span><br>
+                - Evet, aynı çünkü parantezler olsun olmasın değerlendirme sırası aynıdır.
+            </li>
+            <li><span>2. `(x &gt; 0 || x &lt; 10)` ifadesi `((x &gt; 0) || (x &lt; 10))` ile aynı mı?</span><br>
+                - Evet, aynı çünkü parantezler olsun olmasın değerlendirme sırası aynıdır.
+            </li>
+            <li><span>3. `(x &gt; 0 || x &lt; 10 &amp;&amp; y &lt; 0)` ifadesi `(x &gt; 0 || (x &lt; 10 &amp;&amp; y &lt; 0))` ile aynı mı?</span><br>
+                - Hayır, aynı değiller. Operatörlerin önceliği nedeniyle `&amp;&amp;` `||`'dan önce değerlendirilir. Bu yüzden varsayılan olarak `(x &gt; 0 || x &lt; 10 &amp;&amp; y &lt; 0)` ifadesi `(x &gt; 0 || (x &lt; 10 &amp;&amp; y &lt; 0))` olarak değerlendirilir. Gruplamayı değiştirmek için açık parantezler gereklidir.
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+</body>
+</html>
