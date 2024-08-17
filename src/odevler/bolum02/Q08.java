@@ -14,10 +14,8 @@ The current time is 4:50:34
         Scanner scanner = new Scanner(System.in);
 
         // Kullanıcıdan GMT'ye göre saat dilimi offset'ini girmesini isteyelim
-        System.out.println("Enter the time zone offset to GMT: ");
+        System.out.print("Enter the time zone offset to GMT: ");
         int offset = scanner.nextInt();
-
-        // Saat dilimine göre tarihi gösterelim
 
         // 1 Ocak 1970'ten itibaren geçen toplam milisaniyeyi elde et
         long totalMilliseconds = System.currentTimeMillis();
@@ -47,3 +45,5 @@ The current time is 4:50:34
         System.out.println("Current time is " + localHour + ":" + currentMinute + ":" + currentSecond);
     }
 }
+
+
