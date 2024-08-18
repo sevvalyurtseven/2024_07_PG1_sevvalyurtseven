@@ -52,11 +52,28 @@ public class Q01 {
         if(discriminant > 0){
             double r1 = (-b + Math.pow(discriminant, 0.5)) / (2 * a);
             double r2 = (-b - Math.pow(discriminant, 0.5)) / (2 * a);
-            System.out.println("The equation has two roots " + r1 + " and " + r2);
+            // Köklerin tam sayı olup olmadığını kontrol edelim
+            if(r1 % 1 == 0 && r2 % 1 == 0){
+                System.out.println("The equation has two roots " + (int)r1 + " and " + (int)r2);
+            }
+            else if (r1 % 1 == 0 && r2 % 1 != 0){
+                System.out.println("The equation has two roots " + (int)r1 + " and " + r2);
+            }
+            else if (r1 % 1 != 0 && r2 % 1 == 0){
+                System.out.println("The equation has two roots " + (int)r2 + " and " + r1);
+            }
+            else {
+                System.out.println("The equation has two roots " + r1 + " and " + r2);
+            }
         }
         else if(discriminant == 0){
             double r = -b / (2 * a);
-            System.out.println("The equation has one root " + r);
+            if(r % 1 == 0){
+                System.out.println("The equation has one root " + (int)r);
+            }
+            else {
+                System.out.println("The equation has one root " + r);
+            }
         }
         else {
             System.out.println("The equation has no real roots");
