@@ -13,37 +13,25 @@ The current time is 4:50:34
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Kullanıcıdan GMT'ye göre saat dilimi offset'ini girmesini isteyelim
-        System.out.print("Enter the time zone offset to GMT: ");
-        int offset = scanner.nextInt();
+        // Kullanıcıdan GMT'ye göre saat dilimi ofsetini girmesini iste
+        System.out.println("Enter the time zone offset to GMT: ");
+        long offset = scanner.nextLong();
 
-        // 1 Ocak 1970'ten itibaren geçen toplam milisaniyeyi elde et
-        long totalMilliseconds = System.currentTimeMillis();
+        // Güncel zamanı bul
+        long totalMillieSeconds = System.currentTimeMillis();
+        long totalSeconds = totalMillieSeconds / 1000; // toplam saniyeyi bul (1000 ms = 1 sn)
+        long currentSeconds = totalSeconds % 60; // güncel saniye
 
-        // 1 Ocak 1970'ten itibaren geçen toplam saniyeyi elde et
-        long totalSeconds = totalMilliseconds / 1000;
+        long totalMinutes = totalSeconds / 60; // toplam dakikayı bul (60 saniye = 1 dakika)
+        long currentMinutes = totalMinutes % 60; // güncel dakika
 
-        // Saat içindeki mevcut saniyeyi hesapla
-        long currentSecond = totalSeconds % 60;
+        long totalHours = totalMinutes / 60; // toplam saat'i bul (60 dakika = 1 saat)
+        long currentHours = (totalHours + offset) % 24; // kullanıcının girdigi offset degerine göre belirlenen güncel saat
 
-        // Toplam dakika sayısını elde et
-        long totalMinutes = totalSeconds / 60;
-
-        // Saat içindeki mevcut dakikayı hesapla
-        long currentMinute = totalMinutes % 60;
-
-        // Toplam saat sayısını elde et
-        long totalHours = totalMinutes / 60;
-
-        // Gün içindeki mevcut saati hesapla
-        long currentHour = totalHours % 24;
-
-        // Saat dilimi offset'ini ekle ve 24 saatlik formatta düzenle
-        long localHour = (currentHour + offset + 24) % 24;
-
-        // Sonuçları göster
-        System.out.println("Current time is " + localHour + ":" + currentMinute + ":" + currentSecond);
+        System.out.println("The current time is " + currentHours + ":" + currentMinutes + ":" + currentSeconds);
     }
+
 }
+
 
 
