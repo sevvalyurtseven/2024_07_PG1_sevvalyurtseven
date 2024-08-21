@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Mathematical Functions, Characters and Strings</title>
+    <link rel="stylesheet" href="../resources/styles.css">
+</head>
+<body>
+<div class="container">
+    <!-- Başlık ve Alt Başlık -->
+    <header>
+        <h1>INTRODUCTION TO JAVA PROGRAMMING - Y. Daniel Liang</h1>
+        <h2>Chapter 4: Mathematical Functions, Characters and Strings</h2>
+    </header>
+
+    <!-- 4.1 -->
+    <button class="accordion">4.1 Evaluate the following method calls:</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            In this question, we are asked to evaluate the results of various mathematical method calls in Java's <code>Math</code> class. Each method performs a specific operation, such as finding the square root, trigonometric functions, exponentiation, and rounding.<br/><br/>
+
+            The following are the results of these method calls:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            (a) <code>Math.sqrt(4)</code> = 2.0<br/>
+            (b) <code>Math.sin(2 * Math.PI)</code> = 0.0<br/>
+            (c) <code>Math.cos(2 * Math.PI)</code> = 1.0<br/>
+            (d) <code>Math.pow(2, 2)</code> = 4.0<br/>
+            (e) <code>Math.log(Math.E)</code> = 1.0<br/>
+            (f) <code>Math.exp(1)</code> = 2.718281828459045 (approximately)<br/>
+            (g) <code>Math.max(2, Math.min(3, 4))</code> = 3<br/>
+            (h) <code>Math.rint(-2.5)</code> = -2.0<br/>
+            (i) <code>Math.ceil(-2.5)</code> = -2.0<br/>
+            (j) <code>Math.floor(-2.5)</code> = -3.0<br/>
+            (k) <code>Math.round(-2.5f)</code> = -2<br/>
+            (l) <code>Math.round(-2.5)</code> = -2<br/>
+            (m) <code>Math.rint(2.5)</code> = 2.0<br/>
+            (n) <code>Math.ceil(2.5)</code> = 3.0<br/>
+            (o) <code>Math.floor(2.5)</code> = 2.0<br/>
+            (p) <code>Math.round(2.5f)</code> = 2<br/>
+            (q) <code>Math.round(2.5)</code> = 2<br/>
+            (r) <code>Math.round(Math.abs(-2.5))</code> = 2
+        </p>
+    </div>
+
+    <!-- 4.2 -->
+    <button class="accordion">4.2 True or false? The argument for trigonometric methods is an angle in radians.</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question asks whether the arguments passed to trigonometric methods in Java (like <code>Math.sin()</code> and <code>Math.cos()</code>) are expected to be in radians. Radians are the standard unit of angular measure used in many areas of mathematics. Java's trigonometric methods expect angles to be in radians, not degrees.
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <span>True</span>. In Java, the arguments for trigonometric methods (like <code>Math.sin()</code>, <code>Math.cos()</code>, etc.) are expected to be in radians.
+        </p>
+    </div>
+
+    <!-- 4.3 -->
+    <button class="accordion">4.3 Write a statement that converts 47 degrees to radians and assigns the result to a variable.</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            In this question, we are asked to convert an angle from degrees to radians. Java provides the <code>Math.toRadians()</code> method to perform this conversion. The method takes an angle in degrees and returns the equivalent angle in radians.
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>double radians = Math.toRadians(47);</code>
+        </p>
+    </div>
+
+    <!-- 4.4 -->
+    <button class="accordion">4.4 Write a statement that converts π / 7 to an angle in degrees and assigns the result to a variable.</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question asks us to convert an angle given in radians to degrees. The <code>Math.toDegrees()</code> method in Java is used for this purpose. It takes an angle in radians and converts it to degrees.
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>double degrees = Math.toDegrees(Math.PI / 7);</code>
+        </p>
+    </div>
+
+    <!-- 4.5 -->
+    <button class="accordion">4.5 Write an expression that obtains a random integer between 34 and 55. Write an expression that obtains a random integer between 0 and 999. Write an expression that obtains a random number between 5.5 and 55.5.</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question requires us to generate random numbers in specified ranges. Java's <code>Math.random()</code> method generates a random double between 0.0 (inclusive) and 1.0 (exclusive). To generate random numbers in other ranges, we can scale and shift the result.<br/><br/>
+
+            - For an integer between 34 and 55, we can scale the random value to the desired range by multiplying it by the range size (55 - 34 + 1) and adding the starting value (34).<br/>
+            - For an integer between 0 and 999, we can multiply by 1000 to get the desired range.<br/>
+            - For a double between 5.5 and 55.5, we multiply by the range size (55.5 - 5.5) and add the starting value (5.5).
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            - Random integer between 34 and 55: <code>int randomInt = 34 + (int)(Math.random() * (55 - 34 + 1));</code><br/>
+            - Random integer between 0 and 999: <code>int randomInt = (int)(Math.random() * 1000);</code><br/>
+            - Random number between 5.5 and 55.5: <code>double randomDouble = 5.5 + Math.random() * (55.5 - 5.5);</code>
+        </p>
+    </div>
+
+    <!-- 4.6 -->
+    <button class="accordion">4.6 Why does the Math class not need to be imported?</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            The <code>Math</code> class is part of Java's <code>java.lang</code> package, which is automatically imported by default in every Java program. This package contains fundamental classes that are essential for Java programming, such as <code>String</code>, <code>System</code>, and <code>Math</code>. Because <code>Math</code> is in <code>java.lang</code>, there's no need to manually import it.
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            The <code>Math</code> class is part of the <code>java.lang</code> package, which is automatically imported by default in every Java program. Therefore, there's no need to manually import it.
+        </p>
+    </div>
+
+    <!-- 4.7 -->
+    <button class="accordion">4.7 What is Math.log(Math.exp(5.5))? What is Math.exp(Math.log(5.5))? What is Math.asin(Math.sin(Math.PI / 6))? What is Math.sin(Math.asin(Math.PI / 6))?</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question asks us to evaluate expressions that involve logarithmic, exponential, and trigonometric functions. These functions are often inverses of each other, meaning that applying one after the other can return the original value (within the precision of floating-point arithmetic).<br/><br/>
+
+            - <code>Math.log(Math.exp(5.5))</code>: The exponential function <code>Math.exp()</code> raises <code>e</code> to the power of its argument, and <code>Math.log()</code> returns the natural logarithm. Since these are inverse functions, the result is the original value.<br/>
+            - <code>Math.exp(Math.log(5.5))</code>: Similarly, applying <code>Math.log()</code> and then <code>Math.exp()</code> returns the original value.<br/>
+            - <code>Math.asin(Math.sin(Math.PI / 6))</code>: The sine of <code>Math.PI / 6</code> (which is 30 degrees) is 0.5, and the arcsine of 0.5 is <code>Math.PI / 6</code>.<br/>
+            - <code>Math.sin(Math.asin(Math.PI / 6))</code>: This evaluates to the original angle, which is <code>Math.PI / 6</code>.
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            - <code>Math.log(Math.exp(5.5))</code> = 5.5<br/>
+            - <code>Math.exp(Math.log(5.5))</code> = 5.5<br/>
+            - <code>Math.asin(Math.sin(Math.PI / 6))</code> = <code>Math.PI / 6</code> (approximately 0.5235987755982988)<br/>
+            - <code>Math.sin(Math.asin(Math.PI / 6))</code> = <code>Math.PI / 6</code> (approximately 0.5235987755982988)
+        </p>
+    </div>
+
+    <!-- 4.8 -->
+    <button class="accordion">4.8 Use print statements to find out the ASCII code for '1', 'A', 'B', 'a', and 'b'.
+        Use print statements to find out the character for the decimal codes 40, 59, 79, 85, and 90.
+        Use print statements to find out the character for the hexadecimal code 40, 5A, 71, 72, and 7A.</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            In this question, you are asked to find the ASCII codes for certain characters and the characters that correspond to specific decimal and hexadecimal codes.<br/><br/>
+
+            <span>ASCII Code:</span> ASCII (American Standard Code for Information Interchange) is a character encoding standard that assigns a numerical value to each character. For example, the character 'A' has an ASCII code of 65.<br/><br/>
+
+            <span>Character from ASCII Code:</span> In Java, you can convert an integer (ASCII code) to its corresponding character using type casting. For example, <code>(char)65</code> gives you the character 'A'.<br/><br/>
+
+            The following Java print statements demonstrate how to find the ASCII codes for certain characters and how to retrieve characters from their respective ASCII codes.
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <!-- Karakterlerin ASCII Kodları -->
+            <code>System.out.println((int)'1');</code> // Outputs: 49<br/>
+            <code>System.out.println((int)'A');</code> // Outputs: 65<br/>
+            <code>System.out.println((int)'B');</code> // Outputs: 66<br/>
+            <code>System.out.println((int)'a');</code> // Outputs: 97<br/>
+            <code>System.out.println((int)'b');</code> // Outputs: 98<br/><br/>
+
+            <!-- Onluk (Decimal) Kodlardan Karakterler -->
+            <code>System.out.println((char)40);</code> // Outputs: (<br/>
+            <code>System.out.println((char)59);</code> // Outputs: ;<br/>
+            <code>System.out.println((char)79);</code> // Outputs: O<br/>
+            <code>System.out.println((char)85);</code> // Outputs: U<br/>
+            <code>System.out.println((char)90);</code> // Outputs: Z<br/><br/>
+
+            <!-- Onaltılık (Hexadecimal) Kodlardan Karakterler -->
+            <code>System.out.println((char)0x40);</code> // Outputs: @<br/>
+            <code>System.out.println((char)0x5A);</code> // Outputs: Z<br/>
+            <code>System.out.println((char)0x71);</code> // Outputs: q<br/>
+            <code>System.out.println((char)0x72);</code> // Outputs: r<br/>
+            <code>System.out.println((char)0x7A);</code> // Outputs: z<br/>
+        </p>
+    </div>
+
+    <!-- 4.9 -->
+    <button class="accordion">4.9 Which of the following are correct literals for characters?
+        '1', '\u345dE', '\u3fFa', '\b', '\t'</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question asks us to identify valid character literals in Java. A character literal is a single character enclosed in single quotes, like <code>'A'</code>. Unicode escape sequences represent characters using their hexadecimal Unicode values prefixed with <code>\u</code>. A valid Unicode escape sequence must have exactly four hexadecimal digits.<br/><br/>
+
+            Let's analyze each literal:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            '1' is <span>correct</span> - This is a valid character literal.<br/>
+            '\u345dE' is <span>incorrect</span> - Unicode escape sequences must have exactly 4 hex digits.<br/>
+            '\u3fFa' is <span>incorrect</span> - Unicode escape sequences must have exactly 4 hex digits.<br/>
+            '\b' is <span>correct</span> - This represents the backspace character.<br/>
+            '\t' is <span>correct</span> - This represents the tab character.<br/>
+        </p>
+    </div>
+
+    <!-- 4.10 -->
+    <button class="accordion">4.10 How do you display the characters \ and "?</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            In Java, some characters have special meanings in strings and require an escape sequence to be displayed. For example, the backslash <code>\</code> is used to start an escape sequence, and the double quote <code>"</code> is used to delimit strings. To display these characters as part of a string, you must escape them with a backslash.
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            To display the backslash (<code>\</code>), use <code>\\</code>.<br/>
+            To display the double quote (<code>"</code>), use <code>\"</code>.
+        </p>
+    </div>
+
+    <!-- 4.11 -->
+    <button class="accordion">4.11 Evaluate the following:</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question involves evaluating expressions that involve character literals and their ASCII values in Java. Characters in Java can be treated as integers according to their ASCII values, allowing arithmetic operations on them.<br/><br/>
+
+            Let's break down the expressions:
+            - <code>int i = '1';</code> assigns the ASCII value of '1' to <code>i</code>, which is 49.<br/>
+            - <code>int j = '1' + '2' * ('4' - '3') + 'b' / 'a';</code> involves several operations on ASCII values. The result is calculated based on the order of operations (multiplication and division before addition).<br/>
+            - <code>int k = 'a';</code> assigns the ASCII value of 'a' (97) to <code>k</code>.<br/>
+            - <code>char c = 90;</code> assigns the character corresponding to ASCII value 90 ('Z') to <code>c</code>.
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>int i = '1';</code> // i = 49 (ASCII code of '1')<br/>
+            <code>int j = '1' + '2' * ('4' - '3') + 'b' / 'a';</code> // j = 101<br/>
+            <code>int k = 'a';</code> // k = 97 (ASCII code of 'a')<br/>
+            <code>char c = 90;</code> // c = 'Z' (ASCII character for 90)
+        </p>
+    </div>
+
+    <!-- 4.12 -->
+    <button class="accordion">4.12 Can the following conversions involving casting be allowed? If so, find the converted result.</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question deals with type casting in Java, where one data type is explicitly converted to another. Some conversions are allowed implicitly (e.g., from a smaller data type to a larger one), while others require explicit casting (e.g., from a floating-point number to an integer). Casting may result in truncation or rounding when converting from floating-point to integer types.<br/><br/>
+
+            Let's evaluate the given conversions:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>char c = 'A';</code> // c = 'A'<br/>
+            <code>int i = (int)c;</code> // i = 65 (ASCII value of 'A')<br/><br/>
+
+            <code>float f = 1000.34f;</code> // f = 1000.34<br/>
+            <code>int i = (int)f;</code> // i = 1000 (casting truncates the decimal part)<br/><br/>
+
+            <code>double d = 1000.34;</code> // d = 1000.34<br/>
+            <code>int i = (int)d;</code> // i = 1000 (casting truncates the decimal part)<br/><br/>
+
+            <code>int i = 97;</code> // i = 97<br/>
+            <code>char c = (char)i;</code> // c = 'a' (ASCII character for 97)
+        </p>
+    </div>
+
+    <!-- 4.13 -->
+    <button class="accordion">4.13 Show the output of the following program:</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question asks us to determine the output of a Java program that manipulates character variables using increment and arithmetic operations. In Java, the <code>++</code> operator increases a character's ASCII value, while subtraction between characters results in an integer difference based on their ASCII values.<br/><br/>
+
+            The program performs the following operations:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>char x = 'a';</code><br/>
+            <code>char y = 'c';</code><br/>
+            <code>System.out.println(++x);</code> // Outputs: 'b' (x is incremented before printing)<br/>
+            <code>System.out.println(y++);</code> // Outputs: 'c' (y is printed before incrementing)<br/>
+            <code>System.out.println(x - y);</code> // Outputs: -1 (difference between 'b' and 'd')<br/>
+        </p>
+    </div>
+
+    <!-- 4.14 -->
+    <button class="accordion">4.14 Write the code that generates a random lowercase letter.</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question asks us to generate a random lowercase letter using Java. Lowercase letters in the ASCII table range from 'a' (97) to 'z' (122). We can use <code>Math.random()</code> to generate a random number within this range and then convert it to a character.<br/><br/>
+
+            The following code accomplishes this:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>char randomLowercase = (char)('a' + Math.random() * ('z' - 'a' + 1));</code>
+        </p>
+    </div>
+
+    <!-- 4.15 -->
+    <button class="accordion">4.15 Show the output of the following statements:</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question involves evaluating boolean expressions that compare characters in Java. Characters are compared based on their ASCII values. For example, 'a' (97) is greater than 'A' (65) because it has a higher ASCII value.<br/><br/>
+
+            Let's evaluate each expression:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>System.out.println('a' < 'b');</code> // Outputs: true<br/>
+            <code>System.out.println('a' <= 'A');</code> // Outputs: false<br/>
+            <code>System.out.println('a' > 'b');</code> // Outputs: false<br/>
+            <code>System.out.println('a' >= 'A');</code> // Outputs: true<br/>
+            <code>System.out.println('a' == 'a');</code> // Outputs: true<br/>
+            <code>System.out.println('a' != 'b');</code> // Outputs: true<br/>
+        </p>
+    </div>
+    <!-- 4.16 -->
+    <button class="accordion">4.16 Suppose that s1, s2, and s3 are three strings, given as follows:</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            In this question, you are given three strings, and you need to evaluate several expressions involving string comparisons and operations. The <code>==</code> operator checks if two references point to the same object, while the <code>equals()</code> method checks if two strings have the same content. The <code>compareTo()</code> method compares strings lexicographically, returning a negative number, zero, or a positive number depending on whether the first string is less than, equal to, or greater than the second string.<br/><br/>
+
+            Let's evaluate each expression:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            Given:<br/>
+            <code>String s1 = "Welcome to Java";</code><br/>
+            <code>String s2 = "Programming is fun";</code><br/>
+            <code>String s3 = "Welcome to Java";</code><br/><br/>
+
+            (a) <code>s1 == s2</code> - <span>False</span> (different objects)<br/>
+            (b) <code>s2 == s3</code> - <span>False</span> (different objects)<br/>
+            (c) <code>s1.equals(s2)</code> - <span>False</span> (different content)<br/>
+            (d) <code>s1.equals(s3)</code> - <span>True</span> (same content)<br/>
+            (e) <code>s1.compareTo(s2)</code> - Negative value (because "Welcome to Java" is lexicographically less than "Programming is fun")<br/>
+            (f) <code>s2.compareTo(s3)</code> - Positive value (because "Programming is fun" is lexicographically greater than "Welcome to Java")<br/>
+            (g) <code>s2.compareTo(s2)</code> - <span>0</span> (same strings)<br/>
+            (h) <code>s1.charAt(0)</code> - <span>'W'</span> (the first character of s1)<br/>
+            (i) <code>s1.indexOf('j')</code> - <span>-1</span> ('j' is not found, case-sensitive)<br/>
+            (j) <code>s1.indexOf("to")</code> - <span>8</span> (the substring "to" starts at index 8)<br/>
+            (k) <code>s1.lastIndexOf('a')</code> - <span>14</span> (the last 'a' in s1 is at index 14)<br/>
+            (l) <code>s1.lastIndexOf("o", 15)</code> - <span>9</span> (the last 'o' before index 15 is at index 9)<br/>
+            (m) <code>s1.length()</code> - <span>15</span> (length of s1)<br/>
+            (n) <code>s1.substring(5)</code> - <span>"me to Java"</span> (substring starting from index 5)<br/>
+            (o) <code>s1.substring(5, 11)</code> - <span>"me to "</span> (substring from index 5 to 11)<br/>
+            (p) <code>s1.startsWith("Wel")</code> - <span>True</span> (s1 starts with "Wel")<br/>
+            (q) <code>s1.endsWith("Java")</code> - <span>True</span> (s1 ends with "Java")<br/>
+            (r) <code>s1.toLowerCase()</code> - <span>"welcome to java"</span> (all characters in lowercase)<br/>
+            (s) <code>s1.toUpperCase()</code> - <span>"WELCOME TO JAVA"</span> (all characters in uppercase)<br/>
+            (t) <code>s1.concat(s2)</code> - <span>"Welcome to JavaProgramming is fun"</span> (concatenation of s1 and s2)<br/>
+            (u) <code>s1.contains(s2)</code> - <span>False</span> (s2 is not a substring of s1)<br/>
+            (v) <code>"\t Wel \t".trim()</code> - <span>"Wel"</span> (leading and trailing whitespace removed)<br/>
+        </p>
+    </div>
+
+    <!-- 4.17 -->
+    <button class="accordion">4.17 Suppose that s1 and s2 are two strings. Which of the following statements or expressions are incorrect?</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question asks you to identify incorrect statements or expressions involving strings in Java. Java strings are objects, and many operations must be performed using methods rather than operators. For example, you cannot subtract strings using the <code>-</code> operator, and the comparison operators <code>==</code> and <code>>=</code> compare references, not the actual content of the strings.<br/><br/>
+
+            Let's analyze each statement:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>String s = "Welcome to Java";</code> - <span>Correct</span> (valid string assignment)<br/>
+            <code>String s3 = s1 + s2;</code> - <span>Correct</span> (valid string concatenation)<br/>
+            <code>String s3 = s1 - s2;</code> - <span>Incorrect</span> (cannot subtract strings)<br/>
+            <code>s1 == s2;</code> - <span>Correct but may lead to unexpected results</span> (compares references, not content)<br/>
+            <code>s1 >= s2;</code> - <span>Incorrect</span> (comparison operators cannot be used directly on strings)<br/>
+            <code>s1.compareTo(s2);</code> - <span>Correct</span> (valid method to compare strings lexicographically)<br/>
+            <code>int i = s1.length();</code> - <span>Correct</span> (valid method to get string length)<br/>
+            <code>char c = s1(0);</code> - <span>Incorrect</span> (method call syntax is wrong, should be <code>s1.charAt(0)</code>)<br/>
+            <code>char c = s1.charAt(s1.length());</code> - <span>Incorrect</span> (index out of bounds, should be <code>s1.length() - 1</code> for the last character)<br/>
+        </p>
+    </div>
+
+    <!-- 4.18 -->
+    <button class="accordion">4.18 Show the output of the following statements (write a program to verify your results):</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question involves understanding how Java handles string concatenation and character arithmetic. When concatenating strings with numbers, Java converts numbers to strings and appends them. When performing arithmetic with characters, Java uses their ASCII values.<br/><br/>
+
+            Let's evaluate the outputs:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>System.out.println("1" + 1);</code> - <span>"11"</span> (string concatenation of "1" and "1")<br/>
+            <code>System.out.println('1' + 1);</code> - <span>50</span> (character '1' (ASCII 49) plus 1 equals 50)<br/>
+            <code>System.out.println("1" + 1 + 1);</code> - <span>"111"</span> (string concatenation of "1", "1", and "1")<br/>
+            <code>System.out.println("1" + (1 + 1));</code> - <span>"12"</span> (1 + 1 is evaluated first, then concatenated with "1")<br/>
+            <code>System.out.println('1' + 1 + 1);</code> - <span>51</span> (character '1' (ASCII 49) plus 1 plus 1 equals 51)<br/>
+        </p>
+    </div>
+
+    <!-- 4.19 -->
+    <button class="accordion">4.19 Evaluate the following expressions (write a program to verify your results):</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question involves understanding how Java handles string concatenation, especially when combined with numbers, characters, and Unicode values. Java processes these expressions from left to right, and when a string is encountered, subsequent numbers or characters are converted to strings and concatenated.<br/><br/>
+
+            Let's evaluate the expressions one by one:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>1 + "Welcome " + 1 + 1</code> - <span>"1Welcome 11"</span> (Concatenation happens from left to right, each number is appended as a string.)<br/>
+            <code>1 + "Welcome " + (1 + 1)</code> - <span>"1Welcome 2"</span> (The expression inside parentheses is evaluated first.)<br/>
+            <code>1 + "Welcome " + ('\u0001' + 1)</code> - <span>"1Welcome 2"</span> (Unicode '\u0001' has a value of 1, adding 1 gives 2.)<br/>
+            <code>1 + "Welcome " + 'a' + 1</code> - <span>"1Welcome a1"</span> (The character 'a' is treated as a string, and 1 is appended as a string.)<br/>
+        </p>
+    </div>
+    <!-- 4.20 -->
+    <button class="accordion">4.20 Let s1 be " Welcome " and s2 be " welcome ". Write the code for the following statements:</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question asks us to perform various operations on strings <code>s1</code> and <code>s2</code> using different methods provided by the Java String class. The operations include equality checks, comparisons, substring operations, and more. Let's go through each operation step by step.
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            <code>String s1 = " Welcome ";</code><br/>
+            <code>String s2 = " welcome ";</code><br/><br/>
+
+            <!-- (a) -->
+            (a) <span>Check whether s1 is equal to s2 and assign the result to a Boolean variable isEqual.</span><br/>
+            <code>boolean isEqual = s1.equals(s2);</code> - <span>False</span> (case-sensitive comparison, " Welcome " != " welcome ")<br/><br/>
+
+            <!-- (b) -->
+            (b) <span>Check whether s1 is equal to s2, ignoring case, and assign the result to a Boolean variable isEqual.</span><br/>
+            <code>boolean isEqual = s1.equalsIgnoreCase(s2);</code> - <span>True</span> (case-insensitive comparison, " Welcome " equals " welcome ")<br/><br/>
+
+            <!-- (c) -->
+            (c) <span>Compare s1 with s2 and assign the result to an int variable x.</span><br/>
+            <code>int x = s1.compareTo(s2);</code> - <span>Positive value</span> (" Welcome " comes after " welcome " lexicographically due to case sensitivity)<br/><br/>
+
+            <!-- (d) -->
+            (d) <span>Compare s1 with s2, ignoring case, and assign the result to an int variable x.</span><br/>
+            <code>int x = s1.compareToIgnoreCase(s2);</code> - <span>0</span> (case-insensitive comparison, strings are considered equal)<br/><br/>
+
+            <!-- (e) -->
+            (e) <span>Check whether s1 has the prefix "AAA" and assign the result to a Boolean variable b.</span><br/>
+            <code>boolean b = s1.startsWith("AAA");</code> - <span>False</span> (" Welcome " does not start with "AAA")<br/><br/>
+
+            <!-- (f) -->
+            (f) <span>Check whether s1 has the suffix "AAA" and assign the result to a Boolean variable b.</span><br/>
+            <code>boolean b = s1.endsWith("AAA");</code> - <span>False</span> (" Welcome " does not end with "AAA")<br/><br/>
+
+            <!-- (g) -->
+            (g) <span>Assign the length of s1 to an int variable x.</span><br/>
+            <code>int x = s1.length();</code> - <span>9</span> (length of " Welcome " including spaces)<br/><br/>
+
+            <!-- (h) -->
+            (h) <span>Assign the first character of s1 to a char variable x.</span><br/>
+            <code>char x = s1.charAt(0);</code> - <span>' '</span> (first character is a space)<br/><br/>
+
+            <!-- (i) -->
+            (i) <span>Create a new string s3 that combines s1 with s2.</span><br/>
+            <code>String s3 = s1.concat(s2);</code> - <span>" Welcome  welcome "</span> (concatenation of s1 and s2)<br/><br/>
+
+            <!-- (j) -->
+            (j) <span>Create a substring of s1 starting from index 1.</span><br/>
+            <code>String s3 = s1.substring(1);</code> - <span>"Welcome "</span> (substring starting from index 1)<br/><br/>
+
+            <!-- (k) -->
+            (k) <span>Create a substring of s1 from index 1 to index 4.</span><br/>
+            <code>String s3 = s1.substring(1, 4);</code> - <span>"Wel"</span> (substring from index 1 to 4)<br/><br/>
+
+            <!-- (l) -->
+            (l) <span>Create a new string s3 that converts s1 to lowercase.</span><br/>
+            <code>String s3 = s1.toLowerCase();</code> - <span>" welcome "</span> (converts s1 to lowercase)<br/><br/>
+
+            <!-- (m) -->
+            (m) <span>Create a new string s3 that converts s1 to uppercase.</span><br/>
+            <code>String s3 = s1.toUpperCase();</code> - <span>" WELCOME "</span> (converts s1 to uppercase)<br/><br/>
+
+            <!-- (n) -->
+            (n) <span>Create a new string s3 that trims whitespace characters on both ends of s1.</span><br/>
+            <code>String s3 = s1.trim();</code> - <span>"Welcome"</span> (trims leading and trailing spaces)<br/><br/>
+
+            <!-- (o) -->
+            (o) <span>Assign the index of the first occurrence of the character 'e' in s1 to an int variable x.</span><br/>
+            <code>int x = s1.indexOf('e');</code> - <span>2</span> (first 'e' occurs at index 2)<br/><br/>
+
+            <!-- (p) -->
+            (p) <span>Assign the index of the last occurrence of the string "abc" in s1 to an int variable x.</span><br/>
+            <code>int x = s1.lastIndexOf("abc");</code> - <span>-1</span> ("abc" is not found in s1)<br/><br/>
+        </p>
+    </div>
+    <!-- 4.21 -->
+    <button class="accordion">4.21 If you run Listing 4.3 GuessBirthday.java with input 1 for Set1, Set3, and Set4 and 0
+        for Set2 and Set5, what will be the birthday?</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            In the `GuessBirthday.java` program, the birthday is determined by summing up the first numbers in the sets where the user has answered "Yes" (1). Each set contains certain days, and the sum of the first numbers of the sets where the user answers "Yes" gives the user's birthday.<br/><br/>
+
+            The sets are:
+            - Set 1: 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31
+            - Set 2: 2, 3, 6, 7, 10, 11, 14, 15, 18, 19, 22, 23, 26, 27, 30, 31
+            - Set 3: 4, 5, 6, 7, 12, 13, 14, 15, 20, 21, 22, 23, 28, 29, 30, 31
+            - Set 4: 8, 9, 10, 11, 12, 13, 14, 15, 24, 25, 26, 27, 28, 29, 30, 31
+            - Set 5: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31<br/><br/>
+
+            If the user inputs "1" for Set1, Set3, and Set4, and "0" for Set2 and Set5, the birthday is calculated as:<br/>
+            1 (from Set1) + 4 (from Set3) + 8 (from Set4) = 13<br/><br/>
+
+            <span>Answer:</span><br/><br/>
+            The birthday is 13.
+        </p>
+    </div>
+
+    <!-- 4.22 -->
+    <button class="accordion">4.22 What are the format specifiers for outputting a Boolean value, a character, a decimal integer, a floating-point number, and a string?</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            In Java, format specifiers are used in the `printf` method to format different types of data for output. The format specifiers for different data types are as follows:<br/><br/>
+
+            - `%b` for a Boolean value<br/>
+            - `%c` for a character<br/>
+            - `%d` for a decimal integer<br/>
+            - `%f` for a floating-point number<br/>
+            - `%s` for a string<br/><br/>
+
+            <span>Answer:</span><br/><br/>
+            - Boolean: `%b`<br/>
+            - Character: `%c`<br/>
+            - Decimal Integer: `%d`<br/>
+            - Floating-point Number: `%f`<br/>
+            - String: `%s`
+        </p>
+    </div>
+
+    <!-- 4.23 -->
+    <button class="accordion">4.23 What is wrong in the following statements?</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            These statements use the `printf` method in Java to format output. The errors in these statements are related to the number and types of arguments passed relative to the format specifiers. Each format specifier in the format string expects a corresponding argument of the correct type.<br/><br/>
+
+            Let's evaluate each statement:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            (a) <code>System.out.printf("%5d %d", 1, 2, 3);</code> - <span>Incorrect</span> (Too many arguments; there are three arguments but only two format specifiers)<br/>
+            (b) <code>System.out.printf("%5d %f", 1);</code> - <span>Incorrect</span> (Not enough arguments; there is one argument but two format specifiers)<br/>
+            (c) <code>System.out.printf("%5d %f", 1, 2);</code> - <span>Incorrect</span> (Type mismatch; the second argument is an integer but `%f` expects a floating-point number)<br/>
+        </p>
+    </div>
+
+    <!-- 4.24 -->
+    <button class="accordion">4.24 Show the output of the following statements.</button>
+    <div class="panel">
+        <p><span>Explanation:</span><br/><br/>
+            This question asks us to evaluate the output of several `printf` statements in Java. The format specifiers and the arguments provided will determine the final output.<br/><br/>
+
+            Let's evaluate the output for each statement:
+        </p>
+        <p><span>Answer:</span><br/><br/>
+            (a) <code>System.out.printf("amount is %f %e\n", 32.32, 32.32);</code><br/>
+            Output: <span>`amount is 32.320000 3.232000e+01`</span> (The floating-point number is displayed in both standard and scientific notation)<br/><br/>
+
+            (b) <code>System.out.printf("amount is %5.2%% %5.4e\n", 32.327, 32.32);</code><br/>
+            Output: <span>`amount is 32.33% 3.2320e+01`</span> (The percentage sign is escaped with `%%`, and the floating-point number is rounded and displayed with 2 decimal places)<br/><br/>
+
+            (c) <code>System.out.printf("%6b\n", (1 > 2));</code><br/>
+            Output: <span>` false`</span> (The Boolean value is right-aligned in a 6-character width)<br/><br/>
+
+            (d) <code>System.out.printf("%6s\n", "Java");</code><br/>
+            Output: <span>`  Java`</span> (The string "Java" is right-aligned in a 6-character width)<br/><br/>
+
+            (e) <code>System.out.printf("%-6b%s\n", (1 > 2), "Java");</code><br/>
+            Output: <span>`false Java`</span> (The Boolean value is left-aligned in a 6-character width, followed by the string "Java")<br/><br/>
+
+            (f) <code>System.out.printf("%6b%-8s\n", (1 > 2), "Java");</code><br/>
+            Output: <span>` falseJava    `</span> (The Boolean value is right-aligned in a 6-character width, followed by the string "Java" which is left-aligned in an 8-character width)<br/>
+        </p>
+    </div>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+</body>
+</html>
+
+
