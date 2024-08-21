@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Mathematical Functions, Characters and Strings</title>
+    <link rel="stylesheet" href="../resources/styles.css">
+</head>
+<body>
+<div class="container">
+    <!-- Başlık ve Alt Başlık -->
+    <header>
+        <h1>INTRODUCTION TO JAVA PROGRAMMING - Y. Daniel Liang</h1>
+        <h2>Bölüm 4: Mathematical Functions, Characters and Strings</h2>
+    </header>
+
+    <!-- 4.1 -->
+    <button class="accordion">4.1 Aşağıdaki method çağrılarını değerlendirin:</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soruda, Java'nın <code>Math</code> sınıfındaki çeşitli mathematical method çağrılarının sonuçlarını değerlendirmemiz isteniyor. Her bir method, karekök bulma, trigonometrik fonksiyonlar, üs alma ve yuvarlama gibi belirli bir işlemi gerçekleştirir.<br/><br/>
+
+            İşte bu method çağrılarının sonuçları:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            (a) <code>Math.sqrt(4)</code> = 2.0<br/>
+            (b) <code>Math.sin(2 * Math.PI)</code> = 0.0<br/>
+            (c) <code>Math.cos(2 * Math.PI)</code> = 1.0<br/>
+            (d) <code>Math.pow(2, 2)</code> = 4.0<br/>
+            (e) <code>Math.log(Math.E)</code> = 1.0<br/>
+            (f) <code>Math.exp(1)</code> = 2.718281828459045 (yaklaşık olarak)<br/>
+            (g) <code>Math.max(2, Math.min(3, 4))</code> = 3<br/>
+            (h) <code>Math.rint(-2.5)</code> = -2.0<br/>
+            (i) <code>Math.ceil(-2.5)</code> = -2.0<br/>
+            (j) <code>Math.floor(-2.5)</code> = -3.0<br/>
+            (k) <code>Math.round(-2.5f)</code> = -2<br/>
+            (l) <code>Math.round(-2.5)</code> = -2<br/>
+            (m) <code>Math.rint(2.5)</code> = 2.0<br/>
+            (n) <code>Math.ceil(2.5)</code> = 3.0<br/>
+            (o) <code>Math.floor(2.5)</code> = 2.0<br/>
+            (p) <code>Math.round(2.5f)</code> = 2<br/>
+            (q) <code>Math.round(2.5)</code> = 2<br/>
+            (r) <code>Math.round(Math.abs(-2.5))</code> = 2
+        </p>
+    </div>
+
+    <!-- 4.2 -->
+    <button class="accordion">4.2 Doğru mu yanlış mı? Trigonometrik methodlar için argüman bir radyan cinsinden açıdır.</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java'daki trigonometrik methodlara (örneğin <code>Math.sin()</code> ve <code>Math.cos()</code>) geçirilen argümanların radyan cinsinden olup olmadığını soruyor. Radyanlar, matematiğin birçok alanında kullanılan standart açısal ölçü birimidir. Java'nın trigonometrik methodları açıların radyan cinsinden olmasını bekler, derece cinsinden değil.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <span>Doğru</span>. Java'da, trigonometrik methodlar (örneğin <code>Math.sin()</code>, <code>Math.cos()</code> vb.) için argümanların radyan cinsinden olması beklenir.
+        </p>
+    </div>
+
+    <!-- 4.3 -->
+    <button class="accordion">4.3 47 dereceyi radyana çeviren ve sonucu bir değişkene atayan bir ifade yazın.</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soruda, bir açıyı dereceden radyana çevirmemiz isteniyor. Java, bu dönüşümü gerçekleştirmek için <code>Math.toRadians()</code> methodunu sağlar. Bu method, derece cinsinden bir açı alır ve karşılık gelen radyan cinsinden açıyı döndürür.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>double radians = Math.toRadians(47);</code>
+        </p>
+    </div>
+
+    <!-- 4.4 -->
+    <button class="accordion">4.4 π / 7'yi derece cinsinden bir açıya çeviren ve sonucu bir değişkene atayan bir ifade yazın.</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, radyan cinsinden verilen bir açıyı dereceye çevirmemizi ister. Java'da bu amaçla <code>Math.toDegrees()</code> methodu kullanılır. Bu method, radyan cinsinden bir açı alır ve dereceye çevirir.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>double degrees = Math.toDegrees(Math.PI / 7);</code>
+        </p>
+    </div>
+
+    <!-- 4.5 -->
+    <button class="accordion">4.5 34 ile 55 arasında rastgele bir tamsayı elde eden bir ifade yazın. 0 ile 999 arasında rastgele bir tamsayı elde eden bir ifade yazın. 5.5 ile 55.5 arasında rastgele bir sayı elde eden bir ifade yazın.</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, belirli aralıklarda rastgele sayılar üretmemizi gerektirir. Java'nın <code>Math.random()</code> methodu 0.0 (dahil) ile 1.0 (hariç) arasında rastgele bir double döndürür. Diğer aralıklarda rastgele sayılar üretmek için, sonucu ölçekleyip kaydırabiliriz.<br/><br/>
+
+            - 34 ile 55 arasında bir tamsayı için, rastgele değeri istenen aralığa ölçeklemek için aralık boyutuyla (55 - 34 + 1) çarpıp başlangıç değerine (34) ekleyebiliriz.<br/>
+            - 0 ile 999 arasında bir tamsayı için, 1000 ile çarparak istenen aralığı elde edebiliriz.<br/>
+            - 5.5 ile 55.5 arasında bir double için, aralık boyutuyla (55.5 - 5.5) çarpıp başlangıç değerine (5.5) ekleyebiliriz.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            - 34 ile 55 arasında rastgele tamsayı: <code>int randomInt = 34 + (int)(Math.random() * (55 - 34 + 1));</code><br/>
+            - 0 ile 999 arasında rastgele tamsayı: <code>int randomInt = (int)(Math.random() * 1000);</code><br/>
+            - 5.5 ile 55.5 arasında rastgele sayı: <code>double randomDouble = 5.5 + Math.random() * (55.5 - 5.5);</code>
+        </p>
+    </div>
+
+    <!-- 4.6 -->
+    <button class="accordion">4.6 Neden Math sınıfının import edilmesine gerek yoktur?</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            <code>Math</code> sınıfı, Java'nın <code>java.lang</code> paketinin bir parçasıdır ve bu paket, her Java programında varsayılan olarak otomatik olarak import edilir. Bu paket, <code>String</code>, <code>System</code> ve <code>Math</code> gibi Java programlaması için temel olan sınıfları içerir. <code>Math</code>, <code>java.lang</code> içinde olduğundan, manuel olarak import edilmesine gerek yoktur.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>Math</code> sınıfı, her Java programında varsayılan olarak otomatik olarak import edilen <code>java.lang</code> paketinin bir parçasıdır. Bu nedenle, manuel olarak import edilmesine gerek yoktur.
+        </p>
+    </div>
+
+    <!-- 4.7 -->
+    <button class="accordion">4.7 Aşağıdakiler nedir? Math.log(Math.exp(5.5))? Math.exp(Math.log(5.5))? Math.asin(Math.sin(Math.PI / 6))? Math.sin(Math.asin(Math.PI / 6))?</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, logaritmik, üstel ve trigonometrik fonksiyonları içeren ifadeleri değerlendirmemizi ister. Bu fonksiyonlar genellikle birbirinin tersi olan fonksiyonlardır; bu da birini diğerinden sonra uygulamanın (yüzer nokta aritmetiği doğruluğu içinde) orijinal değeri geri verebileceği anlamına gelir.<br/><br/>
+
+            - <code>Math.log(Math.exp(5.5))</code>: Üstel fonksiyon <code>Math.exp()</code>, argümanını üssü olarak alır ve <code>Math.log()</code> doğal logaritmayı döndürür. Bu fonksiyonlar ters olduğundan, sonuç orijinal değerdir.<br/>
+            - <code>Math.exp(Math.log(5.5))</code>: Benzer şekilde, <code>Math.log()</code>'yi uygulayıp ardından <code>Math.exp()</code>'yi uygulamak orijinal değeri döndürür.<br/>
+            - <code>Math.asin(Math.sin(Math.PI / 6))</code>: <code>Math.PI / 6</code>'nın (bu 30 derecedir) sinüsü 0.5'tir ve 0.5'in arcsinüsü <code>Math.PI / 6</code>dır.<br/>
+            - <code>Math.sin(Math.asin(Math.PI / 6))</code>: Bu, orijinal açıyı verir, yani <code>Math.PI / 6</code>.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            - <code>Math.log(Math.exp(5.5))</code> = 5.5<br/>
+            - <code>Math.exp(Math.log(5.5))</code> = 5.5<br/>
+            - <code>Math.asin(Math.sin(Math.PI / 6))</code> = <code>Math.PI / 6</code> (yaklaşık 0.5235987755982988)<br/>
+            - <code>Math.sin(Math.asin(Math.PI / 6))</code> = <code>Math.PI / 6</code> (yaklaşık 0.5235987755982988)
+        </p>
+    </div>
+
+    <!-- 4.8 -->
+    <button class="accordion">4.8 '1', 'A', 'B', 'a' ve 'b' için ASCII kodunu bulun. 40, 59, 79, 85 ve 90 ondalık kodları için karakterleri bulun. 40, 5A, 71, 72 ve 7A onaltılık kodları için karakterleri bulun.</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soruda, belirli karakterler için ASCII kodlarını ve belirli ondalık ve onaltılık kodlara karşılık gelen karakterleri bulmanız isteniyor.<br/><br/>
+
+            <span>ASCII Kodu:</span> ASCII (American Standard Code for Information Interchange), her karaktere bir sayısal değer atayan bir karakter kodlama standardıdır. Örneğin, 'A' karakteri ASCII kodu olarak 65'e sahiptir.<br/><br/>
+
+            <span>ASCII Kodundan Karakter:</span> Java'da, bir tamsayıyı (ASCII kodu) tür dönüştürme kullanarak karşılık gelen karaktere dönüştürebilirsiniz. Örneğin, <code>(char)65</code> size 'A' karakterini verir.<br/><br/>
+
+            Aşağıdaki Java print komutları, belirli karakterler için ASCII kodlarını bulmayı ve ilgili ASCII kodlarından karakterleri geri almayı nasıl yapacağınızı gösterir.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <!-- Karakterlerin ASCII Kodları -->
+            <code>System.out.println((int)'1');</code> // Çıktı: 49<br/>
+            <code>System.out.println((int)'A');</code> // Çıktı: 65<br/>
+            <code>System.out.println((int)'B');</code> // Çıktı: 66<br/>
+            <code>System.out.println((int)'a');</code> // Çıktı: 97<br/>
+            <code>System.out.println((int)'b');</code> // Çıktı: 98<br/><br/>
+
+            <!-- Onluk (Decimal) Kodlardan Karakterler -->
+            <code>System.out.println((char)40);</code> // Çıktı: (<br/>
+            <code>System.out.println((char)59);</code> // Çıktı: ;<br/>
+            <code>System.out.println((char)79);</code> // Çıktı: O<br/>
+            <code>System.out.println((char)85);</code> // Çıktı: U<br/>
+            <code>System.out.println((char)90);</code> // Çıktı: Z<br/><br/>
+
+            <!-- Onaltılık (Hexadecimal) Kodlardan Karakterler -->
+            <code>System.out.println((char)0x40);</code> // Çıktı: @<br/>
+            <code>System.out.println((char)0x5A);</code> // Çıktı: Z<br/>
+            <code>System.out.println((char)0x71);</code> // Çıktı: q<br/>
+            <code>System.out.println((char)0x72);</code> // Çıktı: r<br/>
+            <code>System.out.println((char)0x7A);</code> // Çıktı: z<br/>
+        </p>
+    </div>
+
+    <!-- 4.9 -->
+    <button class="accordion">4.9 Aşağıdakilerden hangileri karakterler için doğru literallerdir?
+        '1', '\u345dE', '\u3fFa', '\b', '\t'</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java'da geçerli karakter literallerini tanımlamamızı ister. Bir karakter literal, tek tırnak içine alınmış tek bir karakterdir, örneğin <code>'A'</code>. Unicode kaçış dizileri, karakterleri <code>\u</code> ön ekiyle başlayan altıgen Unicode değerlerini kullanarak temsil eder. Geçerli bir Unicode kaçış dizisi, tam olarak dört altıgen haneye sahip olmalıdır.<br/><br/>
+
+            Her literali analiz edelim:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            '1' <span>doğru</span> - Bu, geçerli bir karakter literaldir.<br/>
+            '\u345dE' <span>yanlış</span> - Unicode kaçış dizileri tam olarak 4 altıgen haneye sahip olmalıdır.<br/>
+            '\u3fFa' <span>yanlış</span> - Unicode kaçış dizileri tam olarak 4 altıgen haneye sahip olmalıdır.<br/>
+            '\b' <span>doğru</span> - Bu, backspace karakterini temsil eder.<br/>
+            '\t' <span>doğru</span> - Bu, tab karakterini temsil eder.<br/>
+        </p>
+    </div>
+
+    <!-- 4.10 -->
+    <button class="accordion">4.10 '\' ve '"' karakterlerini nasıl görüntülersiniz?</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Java'da, bazı karakterlerin stringler içinde özel anlamları vardır ve görüntülenmeleri için bir kaçış dizisi gereklidir. Örneğin, backslash <code>\</code> bir kaçış dizisi başlatmak için kullanılır ve çift tırnak <code>"</code> stringleri sınırlamak için kullanılır. Bu karakterleri bir stringin parçası olarak görüntülemek için, onları bir backslash ile kaçırmanız gerekir.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            Backslash (<code>\</code>) görüntülemek için, <code>\\</code> kullanın.<br/>
+            Çift tırnak (<code>"</code>) görüntülemek için, <code>\"</code> kullanın.
+        </p>
+    </div>
+
+    <!-- 4.11 -->
+    <button class="accordion">4.11 Aşağıdakileri değerlendirin:</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java'da karakter literallerini ve ASCII değerlerini içeren ifadeleri değerlendirir. Java'da karakterler, ASCII değerlerine göre tamsayılar olarak kabul edilebilir ve bunlar üzerinde aritmetik işlemler yapılabilir.<br/><br/>
+
+            İfadeleri adım adım inceleyelim:
+            - <code>int i = '1';</code> '1'in ASCII değerini <code>i</code>'ye atar, bu da 49'dur.<br/>
+            - <code>int j = '1' + '2' * ('4' - '3') + 'b' / 'a';</code> ASCII değerleri üzerinde çeşitli işlemler içerir. Sonuç, işlemlerin sırasına göre hesaplanır (çarpma ve bölme toplama işleminden önce yapılır).<br/>
+            - <code>int k = 'a';</code> 'a' (97) ASCII değerini <code>k</code>'ye atar.<br/>
+            - <code>char c = 90;</code> 90 (ASCII değeri 'Z') karşılık gelen karakteri <code>c</code>'ye atar.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>int i = '1';</code> // i = 49 ('1'in ASCII kodu)<br/>
+            <code>int j = '1' + '2' * ('4' - '3') + 'b' / 'a';</code> // j = 101<br/>
+            <code>int k = 'a';</code> // k = 97 ('a'nın ASCII kodu)<br/>
+            <code>char c = 90;</code> // c = 'Z' (90'ın ASCII karakteri)
+        </p>
+    </div>
+
+    <!-- 4.12 -->
+    <button class="accordion">4.12 Aşağıdaki tür dönüşümleri casting ile yapılabilir mi? Yapılabiliyorsa, dönüştürülmüş sonucu bulun.</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java'da tür dönüşümüyle ilgilidir; bu işlem, bir veri türünün açıkça diğerine dönüştürülmesidir. Bazı dönüşümler örtük olarak izin verilir (örneğin, daha küçük bir veri türünden daha büyük birine), diğerleri ise açıkça casting gerektirir (örneğin, kayan noktalı bir sayıdan bir tamsayıya). Kayan noktalı sayılardan tamsayılara dönüştürme, kesme veya yuvarlama ile sonuçlanabilir.<br/><br/>
+
+            Verilen dönüşümleri değerlendirelim:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>char c = 'A';</code> // c = 'A'<br/>
+            <code>int i = (int)c;</code> // i = 65 ('A'nın ASCII değeri)<br/><br/>
+
+            <code>float f = 1000.34f;</code> // f = 1000.34<br/>
+            <code>int i = (int)f;</code> // i = 1000 (casting, ondalık kısmı keser)<br/><br/>
+
+            <code>double d = 1000.34;</code> // d = 1000.34<br/>
+            <code>int i = (int)d;</code> // i = 1000 (casting, ondalık kısmı keser)<br/><br/>
+
+            <code>int i = 97;</code> // i = 97<br/>
+            <code>char c = (char)i;</code> // c = 'a' (97'nin ASCII karakteri)
+        </p>
+    </div>
+
+    <!-- 4.13 -->
+    <button class="accordion">4.13 Aşağıdaki programın çıktısını gösterin:</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, karakter değişkenlerini arttırma ve aritmetik işlemleri kullanarak işleyen bir Java programının çıktısını belirlememizi ister. Java'da, <code>++</code> operatörü bir karakterin ASCII değerini artırır, karakterler arasındaki çıkarma işlemi ise ASCII değerlerine dayalı olarak bir tamsayı farkı ile sonuçlanır.<br/><br/>
+
+            Program aşağıdaki işlemleri gerçekleştirir:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>char x = 'a';</code><br/>
+            <code>char y = 'c';</code><br/>
+            <code>System.out.println(++x);</code> // Çıktı: 'b' (x yazdırılmadan önce artırılır)<br/>
+            <code>System.out.println(y++);</code> // Çıktı: 'c' (y yazdırıldıktan sonra artırılır)<br/>
+            <code>System.out.println(x - y);</code> // Çıktı: -1 ('b' ve 'd' arasındaki fark)<br/>
+        </p>
+    </div>
+
+    <!-- 4.14 -->
+    <button class="accordion">4.14 Rastgele bir küçük harf üreten kodu yazın.</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java kullanarak rastgele bir küçük harf üretmemizi ister. ASCII tablosunda küçük harfler 'a' (97) ile 'z' (122) arasında yer alır. Bu aralıktaki rastgele bir sayı üretmek ve ardından bunu bir karaktere dönüştürmek için <code>Math.random()</code> kullanabiliriz.<br/><br/>
+
+            Aşağıdaki kod bunu gerçekleştirir:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>char randomLowercase = (char)('a' + Math.random() * ('z' - 'a' + 1));</code>
+        </p>
+    </div>
+
+    <!-- 4.15 -->
+    <button class="accordion">4.15 Aşağıdaki ifadelerin çıktısını gösterin:</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java'da karakterleri karşılaştıran boolean ifadeleri değerlendirmemizi ister. Karakterler, ASCII değerlerine göre karşılaştırılır. Örneğin, 'a' (97), 'A'dan (65) büyüktür çünkü daha yüksek bir ASCII değerine sahiptir.<br/><br/>
+
+            Her ifadeyi değerlendirelim:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>System.out.println('a' < 'b');</code> // Çıktı: true<br/>
+            <code>System.out.println('a' <= 'A');</code> // Çıktı: false<br/>
+            <code>System.out.println('a' > 'b');</code> // Çıktı: false<br/>
+            <code>System.out.println('a' >= 'A');</code> // Çıktı: true<br/>
+            <code>System.out.println('a' == 'a');</code> // Çıktı: true<br/>
+            <code>System.out.println('a' != 'b');</code> // Çıktı: true<br/>
+        </p>
+    </div>
+    <!-- 4.16 -->
+    <button class="accordion">4.16 s1, s2 ve s3 adında üç string olduğunu varsayalım, şu şekilde:</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soruda, üç string verilmiş ve string karşılaştırmaları ve işlemleri içeren çeşitli ifadeleri değerlendirmeniz isteniyor. <code>==</code> operatörü, iki referansın aynı nesneyi işaret edip etmediğini kontrol ederken, <code>equals()</code> methodu iki stringin aynı içeriğe sahip olup olmadığını kontrol eder. <code>compareTo()</code> methodu, stringleri sözlük sırasına göre karşılaştırır; negatif bir sayı, sıfır veya pozitif bir sayı döndürür, bu da ilk stringin ikinci stringten daha az, eşit veya daha büyük olup olmadığını belirtir.<br/><br/>
+
+            Her ifadeyi değerlendirelim:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            Verilen:<br/>
+            <code>String s1 = "Welcome to Java";</code><br/>
+            <code>String s2 = "Programming is fun";</code><br/>
+            <code>String s3 = "Welcome to Java";</code><br/><br/>
+
+            (a) <code>s1 == s2</code> - <span>Yanlış</span> (farklı nesneler)<br/>
+            (b) <code>s2 == s3</code> - <span>Yanlış</span> (farklı nesneler)<br/>
+            (c) <code>s1.equals(s2)</code> - <span>Yanlış</span> (farklı içerikler)<br/>
+            (d) <code>s1.equals(s3)</code> - <span>Doğru</span> (aynı içerikler)<br/>
+            (e) <code>s1.compareTo(s2)</code> - Negatif değer (çünkü "Welcome to Java", sözlük sırasına göre "Programming is fun"dan küçüktür)<br/>
+            (f) <code>s2.compareTo(s3)</code> - Pozitif değer (çünkü "Programming is fun", sözlük sırasına göre "Welcome to Java"dan büyüktür)<br/>
+            (g) <code>s2.compareTo(s2)</code> - <span>0</span> (aynı stringler)<br/>
+            (h) <code>s1.charAt(0)</code> - <span>'W'</span> (s1'in ilk karakteri)<br/>
+            (i) <code>s1.indexOf('j')</code> - <span>-1</span> ('j' bulunamadı, büyük/küçük harf duyarlı)<br/>
+            (j) <code>s1.indexOf("to")</code> - <span>8</span> (substring "to" 8. indexten başlar)<br/>
+            (k) <code>s1.lastIndexOf('a')</code> - <span>14</span> (s1'deki son 'a' 14. indexte)<br/>
+            (l) <code>s1.lastIndexOf("o", 15)</code> - <span>9</span> (15. indexten önceki son 'o', 9. indexte)<br/>
+            (m) <code>s1.length()</code> - <span>15</span> (s1'in uzunluğu)<br/>
+            (n) <code>s1.substring(5)</code> - <span>"me to Java"</span> (5. indexten başlayan substring)<br/>
+            (o) <code>s1.substring(5, 11)</code> - <span>"me to "</span> (5. indexten 11. indexe kadar olan substring)<br/>
+            (p) <code>s1.startsWith("Wel")</code> - <span>Doğru</span> (s1 "Wel" ile başlar)<br/>
+            (q) <code>s1.endsWith("Java")</code> - <span>Doğru</span> (s1 "Java" ile biter)<br/>
+            (r) <code>s1.toLowerCase()</code> - <span>"welcome to java"</span> (tüm karakterler küçük harfe dönüştürülür)<br/>
+            (s) <code>s1.toUpperCase()</code> - <span>"WELCOME TO JAVA"</span> (tüm karakterler büyük harfe dönüştürülür)<br/>
+            (t) <code>s1.concat(s2)</code> - <span>"Welcome to JavaProgramming is fun"</span> (s1 ve s2'nin birleştirilmesi)<br/>
+            (u) <code>s1.contains(s2)</code> - <span>Yanlış</span> (s2, s1'in bir alt stringi değildir)<br/>
+            (v) <code>"\t Wel \t".trim()</code> - <span>"Wel"</span> (başındaki ve sonundaki boşluklar kaldırılır)<br/>
+        </p>
+    </div>
+
+    <!-- 4.17 -->
+    <button class="accordion">4.17 s1 ve s2 adlı iki string olduğunu varsayalım. Aşağıdaki ifadelerden hangileri yanlıştır?</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java'daki stringleri içeren ifadelerin hangilerinin yanlış olduğunu belirlemenizi ister. Java stringleri nesnelerdir ve birçok işlem operatörler yerine methodlar kullanılarak yapılmalıdır. Örneğin, stringler üzerinde <code>-</code> operatörü kullanarak çıkarma işlemi yapılamaz ve <code>==</code> ve <code>>=</code> karşılaştırma operatörleri referansları değil stringlerin gerçek içeriğini karşılaştırır.<br/><br/>
+
+            Her ifadeyi analiz edelim:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>String s = "Welcome to Java";</code> - <span>Doğru</span> (geçerli string atama)<br/>
+            <code>String s3 = s1 + s2;</code> - <span>Doğru</span> (geçerli string birleştirme)<br/>
+            <code>String s3 = s1 - s2;</code> - <span>Yanlış</span> (stringler çıkarılamaz)<br/>
+            <code>s1 == s2;</code> - <span>Doğru ama beklenmeyen sonuçlara yol açabilir</span> (referansları karşılaştırır, içeriği değil)<br/>
+            <code>s1 >= s2;</code> - <span>Yanlış</span> (karşılaştırma operatörleri doğrudan stringlerde kullanılamaz)<br/>
+            <code>s1.compareTo(s2);</code> - <span>Doğru</span> (stringleri sözlük sırasına göre karşılaştırmak için geçerli method)<br/>
+            <code>int i = s1.length();</code> - <span>Doğru</span> (string uzunluğunu almak için geçerli method)<br/>
+            <code>char c = s1(0);</code> - <span>Yanlış</span> (method çağrı sözdizimi yanlış, <code>s1.charAt(0)</code> olmalıdır)<br/>
+            <code>char c = s1.charAt(s1.length());</code> - <span>Yanlış</span> (index sınırları dışı, son karakter için <code>s1.length() - 1</code> olmalıdır)<br/>
+        </p>
+    </div>
+
+    <!-- 4.18 -->
+    <button class="accordion">4.18 Aşağıdaki ifadelerin çıktısını gösterin (sonuçlarınızı doğrulamak için bir program yazın):</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java'nın string birleştirme ve karakter aritmetiği nasıl işlediğini anlamamızı gerektirir. Stringler sayılarla birleştirildiğinde, Java sayıları stringe dönüştürür ve ekler. Karakterlerle aritmetik yaparken, Java onların ASCII değerlerini kullanır.<br/><br/>
+
+            Her bir ifadenin çıktısını değerlendirelim:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>System.out.println("1" + 1);</code> - <span>"11"</span> (string olarak "1" ve "1" birleştirilir)<br/>
+            <code>System.out.println('1' + 1);</code> - <span>50</span> ('1' karakteri (ASCII 49) + 1, 50 eder)<br/>
+            <code>System.out.println("1" + 1 + 1);</code> - <span>"111"</span> (string olarak "1", "1" ve "1" birleştirilir)<br/>
+            <code>System.out.println("1" + (1 + 1));</code> - <span>"12"</span> (1 + 1 önce değerlendirilir, ardından "1" ile birleştirilir)<br/>
+            <code>System.out.println('1' + 1 + 1);</code> - <span>51</span> ('1' karakteri (ASCII 49) + 1 + 1, 51 eder)<br/>
+        </p>
+    </div>
+
+    <!-- 4.19 -->
+    <button class="accordion">4.19 Aşağıdaki ifadeleri değerlendirin (sonuçlarınızı doğrulamak için bir program yazın):</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java'nın string birleştirmeyi nasıl işlediğini, özellikle sayılar, karakterler ve Unicode değerleriyle birleştirildiğinde nasıl davrandığını anlamamızı gerektirir. Java, bu ifadeleri soldan sağa işler ve bir stringle karşılaşıldığında, sonraki sayılar veya karakterler stringe dönüştürülür ve birleştirilir.<br/><br/>
+
+            İfadeleri birer birer değerlendirelim:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>1 + "Welcome " + 1 + 1</code> - <span>"1Welcome 11"</span> (Birleştirme soldan sağa yapılır, her sayı string olarak eklenir.)<br/>
+            <code>1 + "Welcome " + (1 + 1)</code> - <span>"1Welcome 2"</span> (Parantez içindeki ifade önce değerlendirilir.)<br/>
+            <code>1 + "Welcome " + ('\u0001' + 1)</code> - <span>"1Welcome 2"</span> (Unicode '\u0001' değeri 1'dir, 1 eklemek 2 eder.)<br/>
+            <code>1 + "Welcome " + 'a' + 1</code> - <span>"1Welcome a1"</span> ('a' karakteri string olarak işlenir, ve 1 string olarak eklenir.)<br/>
+        </p>
+    </div>
+    <!-- 4.20 -->
+    <button class="accordion">4.20 s1 " Welcome " ve s2 " welcome " olsun. Aşağıdaki ifadeler için kodu yazın:</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, s1 ve s2 stringleri üzerinde farklı methodlar kullanarak çeşitli işlemler yapmamızı ister. İşlemler, eşitlik kontrolleri, karşılaştırmalar, substring işlemleri ve daha fazlasını içerir. Her işlemi adım adım inceleyelim.
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            <code>String s1 = " Welcome ";</code><br/>
+            <code>String s2 = " welcome ";</code><br/><br/>
+
+            <!-- (a) -->
+            (a) <span>s1'in s2'ye eşit olup olmadığını kontrol edin ve sonucu Boolean bir değişken olan isEqual'a atayın.</span><br/>
+            <code>boolean isEqual = s1.equals(s2);</code> - <span>Yanlış</span> (büyük/küçük harf duyarlı karşılaştırma, " Welcome " != " welcome ")<br/><br/>
+
+            <!-- (b) -->
+            (b) <span>s1'in s2'ye eşit olup olmadığını büyük/küçük harf duyarsız olarak kontrol edin ve sonucu Boolean bir değişken olan isEqual'a atayın.</span><br/>
+            <code>boolean isEqual = s1.equalsIgnoreCase(s2);</code> - <span>Doğru</span> (büyük/küçük harf duyarsız karşılaştırma, " Welcome " " welcome " ile eşittir)<br/><br/>
+
+            <!-- (c) -->
+            (c) <span>s1'i s2 ile karşılaştırın ve sonucu int bir değişken olan x'e atayın.</span><br/>
+            <code>int x = s1.compareTo(s2);</code> - <span>Pozitif değer</span> (" Welcome ", büyük/küçük harf duyarlı olarak sözlük sırasına göre " welcome "dan sonra gelir)<br/><br/>
+
+            <!-- (d) -->
+            (d) <span>s1'i s2 ile büyük/küçük harf duyarsız olarak karşılaştırın ve sonucu int bir değişken olan x'e atayın.</span><br/>
+            <code>int x = s1.compareToIgnoreCase(s2);</code> - <span>0</span> (büyük/küçük harf duyarsız karşılaştırma, stringler eşit kabul edilir)<br/><br/>
+
+            <!-- (e) -->
+            (e) <span>s1'in "AAA" ile başlayıp başlamadığını kontrol edin ve sonucu Boolean bir değişken olan b'ye atayın.</span><br/>
+            <code>boolean b = s1.startsWith("AAA");</code> - <span>Yanlış</span> (" Welcome " "AAA" ile başlamaz)<br/><br/>
+
+            <!-- (f) -->
+            (f) <span>s1'in "AAA" ile bitip bitmediğini kontrol edin ve sonucu Boolean bir değişken olan b'ye atayın.</span><br/>
+            <code>boolean b = s1.endsWith("AAA");</code> - <span>Yanlış</span> (" Welcome " "AAA" ile bitmez)<br/><br/>
+
+            <!-- (g) -->
+            (g) <span>s1'in uzunluğunu int bir değişken olan x'e atayın.</span><br/>
+            <code>int x = s1.length();</code> - <span>9</span> (" Welcome " stringinin uzunluğu, boşluklar dahil)<br/><br/>
+
+            <!-- (h) -->
+            (h) <span>s1'in ilk karakterini char bir değişken olan x'e atayın.</span><br/>
+            <code>char x = s1.charAt(0);</code> - <span>' '</span> (ilk karakter bir boşluktur)<br/><br/>
+
+            <!-- (i) -->
+            (i) <span>s1 ile s2'yi birleştiren yeni bir string s3 oluşturun.</span><br/>
+            <code>String s3 = s1.concat(s2);</code> - <span>" Welcome  welcome "</span> (s1 ve s2'nin birleştirilmesi)<br/><br/>
+
+            <!-- (j) -->
+            (j) <span>s1'in 1. indexten başlayan bir substringini oluşturun.</span><br/>
+            <code>String s3 = s1.substring(1);</code> - <span>"Welcome "</span> (1. indexten başlayan substring)<br/><br/>
+
+            <!-- (k) -->
+            (k) <span>s1'in 1. indexten 4. indexe kadar olan bir substringini oluşturun.</span><br/>
+            <code>String s3 = s1.substring(1, 4);</code> - <span>"Wel"</span> (1. indexten 4. indexe kadar olan substring)<br/><br/>
+
+            <!-- (l) -->
+            (l) <span>s1'i küçük harflere dönüştüren yeni bir string s3 oluşturun.</span><br/>
+            <code>String s3 = s1.toLowerCase();</code> - <span>" welcome "</span> (s1 küçük harfe dönüştürülür)<br/><br/>
+
+            <!-- (m) -->
+            (m) <span>s1'i büyük harflere dönüştüren yeni bir string s3 oluşturun.</span><br/>
+            <code>String s3 = s1.toUpperCase();</code> - <span>" WELCOME "</span> (s1 büyük harfe dönüştürülür)<br/><br/>
+
+            <!-- (n) -->
+            (n) <span>s1'in başındaki ve sonundaki boşlukları temizleyen yeni bir string s3 oluşturun.</span><br/>
+            <code>String s3 = s1.trim();</code> - <span>"Welcome"</span> (başındaki ve sonundaki boşluklar temizlenir)<br/><br/>
+
+            <!-- (o) -->
+            (o) <span>s1'de ilk 'e' karakterinin geçtiği yeri int bir değişken olan x'e atayın.</span><br/>
+            <code>int x = s1.indexOf('e');</code> - <span>2</span> (ilk 'e' 2. indexte yer alır)<br/><br/>
+
+            <!-- (p) -->
+            (p) <span>s1'de "abc" stringinin son geçtiği yeri int bir değişken olan x'e atayın.</span><br/>
+            <code>int x = s1.lastIndexOf("abc");</code> - <span>-1</span> ("abc" s1'de bulunamadı)<br/><br/>
+        </p>
+    </div>
+    <!-- 4.21 -->
+    <button class="accordion">4.21 Listing 4.3 GuessBirthday.java'yı Set1, Set3 ve Set4 için 1, Set2 ve Set5 için 0 girdisi ile çalıştırırsanız, doğum günü ne olur?</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            `GuessBirthday.java` programında, doğum günü, kullanıcının "Evet" (1) dediği setlerdeki ilk sayılar toplanarak belirlenir. Her set belirli günler içerir ve kullanıcı "Evet" yanıtını verdiğinde, bu setlerin ilk sayılarının toplamı kullanıcının doğum gününü verir.<br/><br/>
+
+            Setler şunlardır:
+            - Set 1: 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31
+            - Set 2: 2, 3, 6, 7, 10, 11, 14, 15, 18, 19, 22, 23, 26, 27, 30, 31
+            - Set 3: 4, 5, 6, 7, 12, 13, 14, 15, 20, 21, 22, 23, 28, 29, 30, 31
+            - Set 4: 8, 9, 10, 11, 12, 13, 14, 15, 24, 25, 26, 27, 28, 29, 30, 31
+            - Set 5: 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31<br/><br/>
+
+            Kullanıcı Set1, Set3 ve Set4 için "1", Set2 ve Set5 için "0" girdisi yaparsa, doğum günü şu şekilde hesaplanır:<br/>
+            Set1'den 1 + Set3'ten 4 + Set4'ten 8 = 13<br/><br/>
+
+            <span>Cevap:</span><br/><br/>
+            Doğum günü 13.
+        </p>
+    </div>
+
+    <!-- 4.22 -->
+    <button class="accordion">4.22 Bir Boolean değeri, bir karakter, bir ondalık tamsayı, bir floating-point sayı ve bir string için format specifiers nedir?</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Java'da, `printf` methodunda farklı veri türlerini formatlamak için format specifiers kullanılır. Farklı veri türleri için format specifiers şunlardır:<br/><br/>
+
+            - Boolean değeri için `%b`<br/>
+            - Karakter için `%c`<br/>
+            - Ondalık tamsayı için `%d`<br/>
+            - Floating-point sayı için `%f`<br/>
+            - String için `%s`<br/><br/>
+
+            <span>Cevap:</span><br/><br/>
+            - Boolean: `%b`<br/>
+            - Karakter: `%c`<br/>
+            - Ondalık Tamsayı: `%d`<br/>
+            - Floating-point Sayı: `%f`<br/>
+            - String: `%s`
+        </p>
+    </div>
+
+    <!-- 4.23 -->
+    <button class="accordion">4.23 Aşağıdaki ifadelerde ne yanlıştır?</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu ifadeler, Java'da `printf` methodunu kullanarak formatlanmış çıktı üretir. Bu ifadelerdeki hatalar, format specifiers ile geçirilen argümanların sayısı ve türleriyle ilgilidir. Format stringinde her format specifier, doğru türde karşılık gelen bir argüman bekler.<br/><br/>
+
+            Her ifadeyi değerlendirelim:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            (a) <code>System.out.printf("%5d %d", 1, 2, 3);</code> - <span>Yanlış</span> (Çok fazla argüman var; iki format specifier var ama üç argüman var)<br/>
+            (b) <code>System.out.printf("%5d %f", 1);</code> - <span>Yanlış</span> (Yeterli argüman yok; iki format specifier var ama bir argüman var)<br/>
+            (c) <code>System.out.printf("%5d %f", 1, 2);</code> - <span>Yanlış</span> (Tür uyumsuzluğu; ikinci argüman bir tamsayı ama `%f` floating-point sayı bekliyor)<br/>
+        </p>
+    </div>
+
+    <!-- 4.24 -->
+    <button class="accordion">4.24 Aşağıdaki ifadelerin çıktısını gösterin.</button>
+    <div class="panel">
+        <p><span>Açıklama:</span><br/><br/>
+            Bu soru, Java'da `printf` ifadelerinin çıktısını değerlendirmemizi ister. Format specifiers ve sağlanan argümanlar, nihai çıktıyı belirler.<br/><br/>
+
+            Her ifadenin çıktısını değerlendirelim:
+        </p>
+        <p><span>Cevap:</span><br/><br/>
+            (a) <code>System.out.printf("amount is %f %e\n", 32.32, 32.32);</code><br/>
+            Çıktı: <span>`amount is 32.320000 3.232000e+01`</span> (Floating-point sayı hem standart hem de bilimsel notasyonda gösterilir)<br/><br/>
+
+            (b) <code>System.out.printf("amount is %5.2%% %5.4e\n", 32.327, 32.32);</code><br/>
+            Çıktı: <span>`amount is 32.33% 3.2320e+01`</span> (Yüzde işareti `%%` ile kaçırılır ve floating-point sayı 2 ondalık basamakla yuvarlanır ve gösterilir)<br/><br/>
+
+            (c) <code>System.out.printf("%6b\n", (1 > 2));</code><br/>
+            Çıktı: <span>` false`</span> (Boolean değer, 6 karakter genişliğinde sağa yaslanır)<br/><br/>
+
+            (d) <code>System.out.printf("%6s\n", "Java");</code><br/>
+            Çıktı: <span>`  Java`</span> (String "Java" 6 karakter genişliğinde sağa yaslanır)<br/><br/>
+
+            (e) <code>System.out.printf("%-6b%s\n", (1 > 2), "Java");</code><br/>
+            Çıktı: <span>`false Java`</span> (Boolean değer, 6 karakter genişliğinde sola yaslanır, ardından "Java" stringi gelir)<br/><br/>
+
+            (f) <code>System.out.printf("%6b%-8s\n", (1 > 2), "Java");</code><br/>
+            Çıktı: <span>` falseJava    `</span> (Boolean değer, 6 karakter genişliğinde sağa yaslanır, ardından "Java" stringi 8 karakter genişliğinde sola yaslanır)<br/>
+        </p>
+    </div>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+</body>
+</html>
